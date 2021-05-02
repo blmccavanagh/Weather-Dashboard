@@ -1,12 +1,127 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://unpkg.com/tailwindcss@^1.0/dist/tailwind.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="assets/css/style.css">
     <title>Document</title>
 </head>
-<body>
-    
+
+<body class="p-4">
+
+    <header>
+
+        <h1><span class="shadow glow">Weather Dashboard</span></h1>
+
+        <nav>
+
+        </nav>
+
+    </header>
+
+    <!-- grid section -->
+    <main class="flex">
+
+        <aside class="w-1/4">
+            <!-- search bar -->
+            <h2>Enter location:</h2>
+            <section>
+                <input id="city" type="text" placeholder="Perth">
+                <input id="state" type="text" placeholder="WA">
+                <input id="country" type="text" placeholder="Australia">
+            </section>
+            <button>Search</button>
+            <!-- previous search results -->
+            <div></div>
+
+        </aside>
+
+        <!-- div container for weather results -->
+        <section class="w-3/4">
+
+            <div>
+            <!-- main weather results -->
+            <h2>City</h2>
+            <p>Temp</p>
+            <p>Wind</p>
+            <p>Humidity</p>
+            <p>UV Index</p>
+
+            </div>
+
+            <!-- forecast -->
+            <h2>5 Day Forecast:</h2>
+                <div class="grid grid-cols-5">
+                    <!-- day 1 -->
+                    <div class="border-dotted border-4 border-grey">
+                        <p>Date</p>
+                        <p>Temp</p>
+                        <p>Wind</p>
+                        <p>Humidity</p>
+                    </div>
+                    <!-- day 2 -->
+                    <div class="border-dotted border-4 border-grey">
+                        <p>Date</p>
+                        <p>Temp</p>
+                        <p>Wind</p>
+                        <p>Humidity</p>
+                    </div>
+                    <!-- day 3 -->
+                    <div class="border-dotted border-4 border-grey">
+                        <p>Date</p>
+                        <p>Temp</p>
+                        <p>Wind</p>
+                        <p>Humidity</p>
+                    </div>
+                    <!-- day 4 -->
+                    <div class="border-dotted border-4 border-grey">
+                        <p>Date</p>
+                        <p>Temp</p>
+                        <p>Wind</p>
+                        <p>Humidity</p>
+                    </div>
+                    <!-- day 5 -->
+                    <div class="border-dotted border-4 border-grey">
+                        <p>Date</p>
+                        <p>Temp</p>
+                        <p>Wind</p>
+                        <p>Humidity</p>
+                    </div>
+            </div>
+
+        </section>
+
+    </main>
+
+    <footer id="footer" class="handwriting shadow p-4"><span class="glow">Made by </span><span>B.</span>
+        <section class="grid grid-cols-4 lg:grid-cols-8 grid-rows-2 lg:grid-rows-1 gap-2">
+          <a href="https://blmccavanagh.github.io/Professional-Portfolio/" alt="A styled personal website icon providing a hyperlink to Bridget McCavanagh's professional portfolio website."><img
+            class="object-scale-down" src="assets/images/icons/portfolio.png"></a>
+          <a href="tel:+61-0466-265-845" alt="A styled telephone Icon with a phone link to contact +61-466-265-845."><img
+              class="object-scale-down" src="assets/images/icons/phone.PNG"></a>
+          <a href="mailto:b@justcallmeb.com"><img class="object-scale-down" src="assets/images/icons/email.PNG"
+              alt="A styled email icon providing a email link to b@justcallmeB.com"></a>
+          <a href="https://www.instagram.com/exolvoppt" target=_blank><img class="object-scale-down" src="assets/images/icons/instagram.PNG"
+              alt="A styled Instagram.com icon providing a hyperlink to the website."></a>
+          <a href="https://twitter.com/blmccavanagh"><img class="object-scale-down" src="assets/images/icons/twitter.PNG"
+              alt="A styled Twitter.com icon providing a hyperlink to the website."></a>
+          <a href="https://www.linkedin.com/in/blmccavanagh"
+            alt="A styled Linkedin.com icon providing a hyperlink to the website."><img class="object-scale-down"
+              src="assets/images/icons/linkedin.PNG"></a>
+          <a href="https://github.com/blmccavanagh"><img class="object-scale-down" src="assets/images/icons/github.PNG"
+              alt="A styled GitHub.com icon providing a hyperlink to the user profile on the website."></a>
+          <a href="assets/download-items/resume.pdf" download="Bridget McCavanagh - Resume"
+            alt="A styled document icon providing a hyperlink to a resume document download."><img
+              class="object-scale-down" src="assets/images/icons/resume.JPG"></a>
+          <br>
+        </section>
+      </footer>
+
+    <script src="./assets/js/script.js"></script>
+
 </body>
+
 </html>

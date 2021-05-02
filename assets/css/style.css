@@ -1,0 +1,123 @@
+@import url('https://fonts.googleapis.com/css2?family=Homemade+Apple&family=Poppins:wght@300&family=Raleway+Dots&display=swap');
+
+
+html {
+    background-image: url(../images/background-image-1.jpg);
+    margin: 3rem;
+}
+
+:root {
+    --neon-text-color: #FC05F8;
+}
+
+body {
+    font-family: 'Poppins', sans-serif;
+    background-image: url(../images/background-image-light.png);
+}
+
+header {
+    text-align: center;
+    padding: 2rem 4rem;
+    color: #fff;
+    border-bottom: 10px solid #55555580;
+    margin-bottom: 5rem;
+}
+  
+h1 {
+    font-size: 3.5rem;
+}
+
+.handwriting {
+    font-family: 'Homemade Apple', cursive;
+}
+
+footer {
+    font-size: 20px;
+    margin: 25px auto;
+    width: 75%;
+    text-align: center;
+    background-color: #000000;
+    color: white;
+    border-radius: 6rem 2rem;
+}
+  
+.shadow {
+    text-shadow: 3px 3px rgb(0, 0, 0)
+}
+  
+.glow {
+    color: #fff;
+    -webkit-animation: glow 4s ease-in-out infinite alternate;
+    -moz-animation: glow 4s ease-in-out infinite alternate;
+    animation: glow 4s ease-in-out infinite alternate;
+}
+  
+#footer {
+    /* gradiet Varaiable */
+    --gradient: linear-gradient(45deg, #000000, #111111, #333333, #555555, #777777);
+    background-image:var(--gradient);
+    background-size: 600%;
+    background-position: left;
+    animation: grad-bg 10s infinite alternate;
+}
+  
+footer span:nth-of-type(2){
+    font-family: 'Raleway Dots', cursive;
+    font-size: 80px;
+    animation: flicker 1.5s infinite alternate;
+}
+  
+.flex-container > section {
+    flex-wrap: nowrap;
+    width: 100%;
+    margin: 10px;
+    text-align: center;
+}
+  
+img {
+    /* height: auto;
+    width: 5%;
+    margin: 15px; */
+    opacity: 0.2;
+    border-radius: 1rem 0 1rem 0;
+}
+  
+img:hover {
+    opacity: 1;
+}
+
+@keyframes grad-bg {
+    0%{
+        background-position: left;
+    }
+    100%{
+        background-position: right;
+    }
+}
+
+@keyframes glow {
+    from {
+        text-shadow: 0 0 2px rgb(0, 0, 0), 0 0 4px #fff, 0 0 6px #FC05F8, 0 0 8px #FC05F8, 0 0 10px #FC05F8, 0 0 12px #FC05F8, 0 0 14px #FC05F8;
+    }
+    to {
+        text-shadow: 0 0 4px #fff, 0 0 6px #4e0166, 0 0 8px #4e0166, 0 0 10px #4e0166, 0 0 12px #4e0166, 0 0 14px #4e0166, 0 0 16px #4e0166;
+    }
+}
+
+@keyframes flicker {
+    0%,
+    19%,
+    21%,
+    23%,
+    25%,
+    54%,
+    56%,
+    100% {
+        text-shadow: -0.2rem -0.2rem 1rem #fff, 0.2rem 0.2rem 1rem #fff, 0 0 2rem var(--neon-text-color), 0 0 4rem var(--neon-text-color), 0 0 6rem var(--neon-text-color), 0 0 8rem var(--neon-text-color), 0 0 10rem var(--neon-text-color);
+    }
+    20%,
+    24%,
+    55% {
+        text-shadow: none;
+    }
+}
