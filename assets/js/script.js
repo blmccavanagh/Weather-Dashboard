@@ -9,19 +9,57 @@
 
 // 
 
-var learning = "";
+const myApiKey = "ae822aef9413bb77b74f555fff250166";
+const testCity = "Perth";
 
-function mainDisplay () {
-    fetch("https://api.openweathermap.org/data/2.5/weather?q=Perth&units=metric&appid=ae822aef9413bb77b74f555fff250166")
+function searchLocation (city) {
+    fetch(`https://api.openweathermap.org/data/2.5/weather?q=${city}&units=metric&appid=${myApiKey}`)
     .then(function (response) {
         return response.json();
     })
     .then(function (data) {
-        learning = data;
+        let latSearch = data.coord.lat;
+        let lonSearch = data.coord.lon;
+        console.log(data, latSearch, lonSearch);
+        getWeather(latSearch, lonSearch); 
+        
+        
     });
 }
 
-mainDisplay();
+searchLocation(testCity);
+
+function getWeather (lat, lon) {
+    fetch(`https://api.openweathermap.org/data/2.5/onecall?lat=${lat}&lon=${lon}&units=metric&appid=${myApiKey}`)
+    .then(function (response) {
+        return response.json();
+    })
+    .then(function (data) {
+        console.log(data);
+        domBuilder(data);
+    });
+}
+
+function domBuilder (weather) {
+
+    let mainCity = document.querySelector('#main-city');
+    mainCity.textContent = `${weather.name}`;
+
+    let mainTemp = document.querySelector('#main-temp');
+    mainTemp.textContent = `Temp: ${weather.current.temp}°C`;
+
+    let mainWind = document.querySelector('#main-wind');
+    mainWind.textContent = `Wind: ${weather.current.wind_speed} km/h`;
+
+    let mainHumid = document.querySelector('#main-humid');
+    mainHumid.textContent = `Humidity: ${weather.current.humidity}%`;
+
+    let mainUV = document.querySelector('#main-uv');
+    mainUV.textContent = `UV Index: ${weather.current.uvi}`;
+} 
+
+// += shorthand to add text instead of override text
+
 // response gets the response from the api and runs that as the parameter of the function
 
 // fetch is a promise, waiting for an event (the http address) to use the infromation within 
@@ -35,3 +73,13 @@ mainDisplay();
 // OR
 //  = lat/long
 // depending on function value of q is redefined
+
+
+// hit first api (openweather) weather?
+// input = city name
+// output = lat/long
+
+// second api (onecall)
+// input = lat/long
+// output = current weather & forecast
+
