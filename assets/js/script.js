@@ -43,7 +43,7 @@ function getWeather (lat, lon) {
 function domBuilder (weather) {
 
     let mainCity = document.querySelector('#main-city');
-    mainCity.textContent = `${weather.name}`;
+    mainCity.textContent = testCity;
 
     let mainTemp = document.querySelector('#main-temp');
     mainTemp.textContent = `Temp: ${weather.current.temp}°C`;
