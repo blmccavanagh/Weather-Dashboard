@@ -48,6 +48,12 @@ function domBuilder (weather) {
     let mainTemp = document.querySelector('#main-temp');
     mainTemp.textContent = `Temp: ${weather.current.temp}°C`;
 
+    let mainMin = document.querySelector('#main-min');
+    mainTemp.textContent = `Temp: ${weather.current.temp}°C`;
+
+    let mainMax = document.querySelector('#main-max');
+    mainTemp.textContent = `Temp: ${weather.current.temp}°C`;
+
     let mainWind = document.querySelector('#main-wind');
     mainWind.textContent = `Wind: ${weather.current.wind_speed} km/h`;
 
@@ -57,6 +63,30 @@ function domBuilder (weather) {
     let mainUV = document.querySelector('#main-uv');
     mainUV.textContent = `UV Index: ${weather.current.uvi}`;
 } 
+
+function uvCcolorCode(){
+    // Use the value from uvi
+
+    let uvi;
+    let currentUvi;
+
+    if (uvi >= 0 && uvi <= 2) {
+        // inner text of main uv element
+        currentUvi.addClass('uvLow');
+    } else if (uvi > 2 && uvi <= 5) {
+        // inner text of main uv element
+        currentUvi.addClass('uvMod');
+    } else if (uvi > 5 && uvi <= 7) {
+        // inner text of main uv element
+        currentUvi.addClass('uvHigh');
+    } else if (uvi > 7 && uvi <= 10) {
+        // inner text of main uv element
+        currentUvi.addClass('uvVeryHigh');
+    } else if (uvi > 5 && uvi <= 7) {
+        // inner text of main uv element
+        currentUvi.addClass('uvExtreme');
+    }
+}
 
 // += shorthand to add text instead of override text
 
@@ -82,4 +112,3 @@ function domBuilder (weather) {
 // second api (onecall)
 // input = lat/long
 // output = current weather & forecast
-

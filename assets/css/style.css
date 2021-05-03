@@ -31,6 +31,37 @@ h1 {
     font-family: 'Homemade Apple', cursive;
 }
 
+.shadow {
+    text-shadow: 3px 3px rgb(0, 0, 0)
+}
+
+.glow {
+    color: #fff;
+    -webkit-animation: glow 4s ease-in-out infinite alternate;
+    -moz-animation: glow 4s ease-in-out infinite alternate;
+    animation: glow 4s ease-in-out infinite alternate;
+}
+
+.uvLow {
+    background-color: green;
+}
+
+.uvMod {
+    background-color: yellow;
+}
+
+.uvHigh {
+    background-color: orange;
+}
+
+.uvVeryHigh {
+    background-color: red;
+}
+
+.uvExtreme {
+    background-color: violet;
+}
+
 footer {
     font-size: 20px;
     margin: 25px auto;
@@ -39,17 +70,6 @@ footer {
     background-color: #000000;
     color: white;
     border-radius: 6rem 2rem;
-}
-  
-.shadow {
-    text-shadow: 3px 3px rgb(0, 0, 0)
-}
-  
-.glow {
-    color: #fff;
-    -webkit-animation: glow 4s ease-in-out infinite alternate;
-    -moz-animation: glow 4s ease-in-out infinite alternate;
-    animation: glow 4s ease-in-out infinite alternate;
 }
   
 #footer {
@@ -75,9 +95,6 @@ footer span:nth-of-type(2){
 }
   
 img {
-    /* height: auto;
-    width: 5%;
-    margin: 15px; */
     opacity: 0.2;
     border-radius: 1rem 0 1rem 0;
 }
