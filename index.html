@@ -37,11 +37,11 @@
             <!-- search bar -->
             <h2>Enter City:</h2>
             <section>
-                <input id="city" type="text" placeholder="Perth, AU" class="border-2 border-blue-400 border-solid rounded-md focus:outline-none focus:ring-2 focus:ring-blue-600">
+                <input id="location-search" type="text" placeholder="Perth, AU" class="border-2 border-blue-400 border-solid rounded-md focus:outline-none focus:ring-2 focus:ring-blue-600">
                 <!-- border-2 border-blue-400 border-solid rounded-md -->
             </section>
             <p>Top Tip! Refine your search by including the country code.</p>
-            <button class="bg-blue-400 hover:bg-blue-600 content-center">Search</button>
+            <button id="search-button" class="bg-blue-400 hover:bg-blue-600 content-center">Search</button>
             <!-- previous search results -->
             <div id="search-history"></div>
 
@@ -56,10 +56,11 @@
             <!-- main weather results -->
             <h1 id="main-city"></h1>
             <div class="flex">
-                <img src="" alt="weather icon">
+                <!-- <img src="" alt="weather icon"> -->
+                <div id="main-icon"></div>
                 <div>
-                    <h2>Day</h2>
-                    <h3>Date: Month Day, Year</h3>
+                    <h2 id="current-day"></h2>
+                    <h3 id="current-date"></h3>
                     <h2 id="weather-cond">Weather conditions</h2>
                 </div>
             </div>
@@ -91,7 +92,7 @@
             <br>
 
             <!-- forecast -->
-            <div class="bg-white p-2 shadow-2xl rounded-lg">
+            <div class="p-2 shadow-2xl rounded-lg bg-gradient-to-r from-blue-100 to-blue-200">
             <h2 class="shadow-inner m-3 rounded-lg">5 Day Forecast:</h2>
                 <div class="grid grid-cols-1 lg:grid-cols-5 gap-4 m-2">
                     <!-- day 1 -->
@@ -162,7 +163,8 @@
         </section>
       </footer>
 
-    <script src="./assets/js/script.js"></script>
+      <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+      <script src="./assets/js/script.js"></script>
 
 </body>
 

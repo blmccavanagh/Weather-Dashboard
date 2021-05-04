@@ -48,7 +48,7 @@ header h1 {
     max-width: 100px
 }
 
-.uvLow {
+/* .uvLow {
     background-color: green;
 }
 
@@ -66,7 +66,7 @@ header h1 {
 
 .uvExtreme {
     background-color: violet;
-}
+} */
 
 footer {
     font-size: 1rem;
