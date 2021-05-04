@@ -3,17 +3,18 @@
 
 html {
     background-image: url(../images/background-image-1.jpg);
-    margin: 4rem;
+    margin: 3rem 1rem;
 }
 
 :root {
     --neon-text-color: #FC05F8;
 }
 
-body {
+.container {
     font-family: 'Poppins', sans-serif;
     /* background-image: url(../images/background-image-xlight.png); */
     background-color: white;
+    margin: 0 auto;
 }
 
 header {
@@ -24,7 +25,7 @@ header {
     margin-bottom: 5rem;
 }
   
-h1 {
+header h1 {
     font-size: 3.5rem;
 }
 
@@ -64,9 +65,9 @@ h1 {
 }
 
 footer {
-    font-size: 20px;
-    margin: 25px auto;
-    width: 75%;
+    font-size: 1rem;
+    margin: 25px auto 0;
+    width: 45%;
     text-align: center;
     background-color: #000000;
     color: white;
@@ -91,7 +92,7 @@ footer {
   
 footer span:nth-of-type(2){
     font-family: 'Raleway Dots', cursive;
-    font-size: 80px;
+    font-size: 4rem;
     animation: flicker 1.5s infinite alternate;
 }
   
@@ -105,8 +106,8 @@ footer span:nth-of-type(2){
 footer img {
     opacity: 0.2;
     border-radius: 1rem 0 1rem 0;
-    max-height: 4rem;
-    max-width: 4rem;
+    max-height: 3rem;
+    max-width: 3rem;
 }
   
 footer img:hover {

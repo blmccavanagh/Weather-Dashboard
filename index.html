@@ -11,7 +11,9 @@
     <title>Document</title>
 </head>
 
-<body class="p-4">
+<body>
+
+<div class="container p-4">
 
     <header class="bg-blue-400">
 
@@ -23,17 +25,23 @@
 
     </header>
 
+
+
+        <!-- <input class="border border-transparent focus:outline-none focus:ring-2 focus:ring-purple-600 focus:border-transparent ...">
+        <button class="bg-purple-600 hover:bg-purple-700 focus:outline-none focus:ring-2 focus:ring-purple-600 focus:ring-opacity-50 ..."> -->
+
     <!-- grid section -->
     <main class="flex">
 
-        <aside class="w-1/4">
+        <aside class="w-1/4 m-4">
             <!-- search bar -->
-            <h2>Enter location:</h2>
+            <h2>Enter City:</h2>
             <section>
-                <input id="city" type="text" placeholder="Perth">
-                <input id="country" type="text" placeholder="Australia">
+                <input id="city" type="text" placeholder="Perth, AU" class="border-2 border-blue-400 border-solid rounded-md focus:outline-none focus:ring-2 focus:ring-blue-600">
+                <!-- border-2 border-blue-400 border-solid rounded-md -->
             </section>
-            <button>Search</button>
+            <p>Top Tip! Refine your search by including the country code.</p>
+            <button class="bg-blue-400 hover:bg-blue-600 content-center">Search</button>
             <!-- previous search results -->
             <div></div>
 
@@ -46,13 +54,13 @@
                 <!-- border-solid border-4 border-black  -->
             <div class="">
             <!-- main weather results -->
-            <h2 id="main-city"></h2>
+            <h1 id="main-city"></h1>
             <div class="flex">
                 <img src="" alt="weather icon">
                 <div>
-                    <p>Date</p>
-                    <p>Day</p>
-                    <p id="weather-cond">Weather conditions</p>
+                    <h2>Day</h2>
+                    <h3>Date: Month Day, Year</h3>
+                    <h2 id="weather-cond">Weather conditions</h2>
                 </div>
             </div>
             <h2 id="main-temp" class="inline"></h2>
@@ -81,41 +89,41 @@
             <!-- forecast -->
             <div class="bg-white p-2 shadow-2xl rounded-lg">
             <h2 class="shadow-inner m-3 rounded-lg">5 Day Forecast:</h2>
-                <div class="grid grid-cols-1 lg:grid-cols-5 gap-4">
+                <div class="grid grid-cols-1 lg:grid-cols-5 gap-4 m-2">
                     <!-- day 1 -->
                     <div class="bg-white shadow-inner rounded-lg">
                         <p id="date-1">Date</p>
                         <p id="temp-1"></p>
                         <p id="wind-1"></p>
-                        <p id="humid-1">Humidity</p>
+                        <p id="humid-1"></p>
                     </div>
                     <!-- day 2 -->
                     <div class="bg-white shadow-inner rounded-lg">
                         <p id="date-2">Date</p>
                         <p id="temp-2"></p>
                         <p id="wind-2"></p>
-                        <p id="humid-2">Humidity</p>
+                        <p id="humid-2"></p>
                     </div>
                     <!-- day 3 -->
                     <div class="bg-white shadow-inner rounded-lg">
                         <p id="date-3">Date</p>
                         <p id="temp-3"></p>
                         <p id="wind-3"></p>
-                        <p>Humidity</p>
+                        <p id="humid-3"></p>
                     </div>
                     <!-- day 4 -->
                     <div class="bg-white shadow-inner rounded-lg">
                         <p id="date-4">Date</p>
                         <p id="temp-4"></p>
                         <p id="wind-4"></p>
-                        <p>Humidity</p>
+                        <p id="humid-4"></p>
                     </div>
                     <!-- day 5 -->
                     <div class="bg-white shadow-inner rounded-lg">
                         <p id="date-5">Date</p>
                         <p id="temp-5"></p>
                         <p id="wind-5"></p>
-                        <p>Humidity</p>
+                        <p id="humid-5"></p>
                     </div>
                     </div>
             </div>
@@ -124,7 +132,9 @@
 
     </main>
 
-    <footer id="footer" class="handwriting shadow px-4"><span class="glow">Made by </span><span>B.</span>
+    </div>
+
+    <footer id="footer" class="handwriting shadow px-4 shadow-2xl"><span class="glow">Made by </span><span>B.</span>
         <section class="grid grid-cols-4 lg:grid-cols-8 grid-rows-2 lg:grid-rows-1 gap-2">
           <a href="https://blmccavanagh.github.io/Professional-Portfolio/" alt="A styled personal website icon providing a hyperlink to Bridget McCavanagh's professional portfolio website."><img
     class="object-scale-down"      src="assets/images/icons/portfolio.png"></a>

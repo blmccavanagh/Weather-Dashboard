@@ -9,7 +9,7 @@
 
 // 
 
-const myApiKey = "ae822aef9413bb77b74f555fff250166";
+const myApiKey = "2e3b1f93939a95d6c9c978c8d3e1339f";
 const testCity = "Perth, AU";
 // let cityName = "";
 
@@ -97,6 +97,9 @@ function domBuilder (weather, name) {
     const forecastOneWind = document.querySelector('#wind-1');
     forecastOneWind.textContent = `Wind: ${weather.daily[1].wind_speed} km/h`;
 
+    const forecastOneHumid = document.querySelector('#humid-1');
+    forecastOneHumid.textContent = `Humidity: ${weather.daily[1].humidity}%`;
+
 
 
 
@@ -105,6 +108,9 @@ function domBuilder (weather, name) {
 
     const forecastTwoWind = document.querySelector('#wind-2');
     forecastTwoWind.textContent = `Wind: ${weather.daily[2].wind_speed} km/h`;
+
+    const forecastTwoHumid = document.querySelector('#humid-2');
+    forecastTwoHumid.textContent = `Humidity: ${weather.daily[2].humidity}%`;
 
 
 
@@ -115,6 +121,9 @@ function domBuilder (weather, name) {
     const forecastThreeWind = document.querySelector('#wind-3');
     forecastThreeWind.textContent = `Wind: ${weather.daily[3].wind_speed} km/h`;
 
+    const forecastThreeHumid = document.querySelector('#humid-3');
+    forecastThreeHumid.textContent = `Humidity: ${weather.daily[3].humidity}%`;
+
 
 
 
@@ -124,6 +133,9 @@ function domBuilder (weather, name) {
     const forecastFourWind = document.querySelector('#wind-4');
     forecastFourWind.textContent = `Wind: ${weather.daily[4].wind_speed} km/h`;
 
+    const forecastFourHumid = document.querySelector('#humid-4');
+    forecastFourHumid.textContent = `Humidity: ${weather.daily[4].humidity}%`;
+
 
 
 
@@ -132,6 +144,9 @@ function domBuilder (weather, name) {
 
     const forecastFiveWind = document.querySelector('#wind-5');
     forecastFiveWind.textContent = `Wind: ${weather.daily[5].wind_speed} km/h`;
+
+    const forecastFiveHumid = document.querySelector('#humid-5');
+    forecastFiveHumid.textContent = `Humidity: ${weather.daily[5].humidity}%`;
 } 
 
 function uvColorCode(){
