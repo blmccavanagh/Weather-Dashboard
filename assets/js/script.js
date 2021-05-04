@@ -85,6 +85,7 @@ function domBuilder (weather, name, country) {
     mainTemp.textContent = `Temp: ${weather.current.temp}°C`;
 
     const feelsLike = document.querySelector('#feels-like');
+    feelsLike.classList.add('italic');
     feelsLike.textContent = `feels like ${weather.current.feels_like}°C`;
 
     const mainMin = document.querySelector('#main-min');
