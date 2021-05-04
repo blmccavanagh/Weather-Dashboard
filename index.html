@@ -8,7 +8,7 @@
     <link rel="icon" type="image/png" href="assets/images/umbrella.png">
     <link href="https://unpkg.com/tailwindcss@^1.0/dist/tailwind.min.css" rel="stylesheet">
     <link rel="stylesheet" href="assets/css/style.css">
-    <title>Document</title>
+    <title>Weather Dashboard</title>
 </head>
 
 <body>
@@ -33,7 +33,7 @@
     <!-- grid section -->
     <main class="flex">
 
-        <aside class="w-1/4 m-4">
+        <aside class="w-1/4 m-4 shadow-inner">
             <!-- search bar -->
             <h2>Enter City:</h2>
             <section>
@@ -43,7 +43,7 @@
             <p>Top Tip! Refine your search by including the country code.</p>
             <button class="bg-blue-400 hover:bg-blue-600 content-center">Search</button>
             <!-- previous search results -->
-            <div></div>
+            <div id="search-history"></div>
 
         </aside>
 
