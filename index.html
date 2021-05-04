@@ -5,6 +5,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" type="image/png" href="assets/images/umbrella.png">
     <link href="https://unpkg.com/tailwindcss@^1.0/dist/tailwind.min.css" rel="stylesheet">
     <link rel="stylesheet" href="assets/css/style.css">
     <title>Document</title>
@@ -12,9 +13,9 @@
 
 <body class="p-4">
 
-    <header>
+    <header class="bg-blue-400">
 
-        <h1><span class="shadow glow">Weather Dashboard</span></h1>
+        <h1 class="glowHeader">Weather Dashboard</h1>
 
         <nav>
 
@@ -30,7 +31,6 @@
             <h2>Enter location:</h2>
             <section>
                 <input id="city" type="text" placeholder="Perth">
-                <input id="state" type="text" placeholder="WA">
                 <input id="country" type="text" placeholder="Australia">
             </section>
             <button>Search</button>
@@ -42,10 +42,21 @@
         <!-- div container for weather results -->
         <section class="w-3/4">
 
-            <div class="border-solid border-4 border-black">
+            <div class="flex bg-white shadow-2xl rounded-lg">
+                <!-- border-solid border-4 border-black  -->
+            <div class="">
             <!-- main weather results -->
             <h2 id="main-city"></h2>
-            <h2 id="main-temp"></h2>
+            <div class="flex">
+                <img src="" alt="weather icon">
+                <div>
+                    <p>Date</p>
+                    <p>Day</p>
+                    <p id="weather-cond">Weather conditions</p>
+                </div>
+            </div>
+            <h2 id="main-temp" class="inline"></h2>
+            <h3 id="feels-like" class="inline"></h3>
             <p id="main-min"></p>
             <p id="main-max"></p>
             <p id="main-wind"></p>
@@ -54,45 +65,56 @@
 
             </div>
 
+            <div class="items-center">
+            <img src="" alt="sunrise icon">
+            <h3 id="sunrise"></h3>
+
+            <img src="" alt="sunset icon">
+            <h3 id="sunset"></h3>
+
+            </div>
+
+            </div>
+
             <br>
 
             <!-- forecast -->
-            <div class="border-solid border-4 border-black">
-            <h2>5 Day Forecast:</h2>
-                <div class="grid grid-cols-1 lg:grid-cols-5">
+            <div class="bg-white p-2 shadow-2xl rounded-lg">
+            <h2 class="shadow-inner m-3 rounded-lg">5 Day Forecast:</h2>
+                <div class="grid grid-cols-1 lg:grid-cols-5 gap-4">
                     <!-- day 1 -->
-                    <div class="border-dotted border-4 border-gray-50">
+                    <div class="bg-white shadow-inner rounded-lg">
                         <p id="date-1">Date</p>
-                        <p id="temp-1">Temp</p>
-                        <p id="wind-1">Wind</p>
+                        <p id="temp-1"></p>
+                        <p id="wind-1"></p>
                         <p id="humid-1">Humidity</p>
                     </div>
                     <!-- day 2 -->
-                    <div class="border-dotted border-4 border-gray-50">
+                    <div class="bg-white shadow-inner rounded-lg">
                         <p id="date-2">Date</p>
-                        <p id="temp-2">Temp</p>
-                        <p id="wind-2">Wind</p>
+                        <p id="temp-2"></p>
+                        <p id="wind-2"></p>
                         <p id="humid-2">Humidity</p>
                     </div>
                     <!-- day 3 -->
-                    <div class="border-dotted border-4 border-gray-50">
-                        <p>Date</p>
-                        <p>Temp</p>
-                        <p>Wind</p>
+                    <div class="bg-white shadow-inner rounded-lg">
+                        <p id="date-3">Date</p>
+                        <p id="temp-3"></p>
+                        <p id="wind-3"></p>
                         <p>Humidity</p>
                     </div>
                     <!-- day 4 -->
-                    <div class="border-dotted border-4 border-gray-50">
-                        <p>Date</p>
-                        <p>Temp</p>
-                        <p>Wind</p>
+                    <div class="bg-white shadow-inner rounded-lg">
+                        <p id="date-4">Date</p>
+                        <p id="temp-4"></p>
+                        <p id="wind-4"></p>
                         <p>Humidity</p>
                     </div>
                     <!-- day 5 -->
-                    <div class="border-dotted border-4 border-gray-50">
-                        <p>Date</p>
-                        <p>Temp</p>
-                        <p>Wind</p>
+                    <div class="bg-white shadow-inner rounded-lg">
+                        <p id="date-5">Date</p>
+                        <p id="temp-5"></p>
+                        <p id="wind-5"></p>
                         <p>Humidity</p>
                     </div>
                     </div>
@@ -102,26 +124,26 @@
 
     </main>
 
-    <footer id="footer" class="handwriting shadow p-4"><span class="glow">Made by </span><span>B.</span>
+    <footer id="footer" class="handwriting shadow px-4"><span class="glow">Made by </span><span>B.</span>
         <section class="grid grid-cols-4 lg:grid-cols-8 grid-rows-2 lg:grid-rows-1 gap-2">
           <a href="https://blmccavanagh.github.io/Professional-Portfolio/" alt="A styled personal website icon providing a hyperlink to Bridget McCavanagh's professional portfolio website."><img
-            class="object-scale-down" src="assets/images/icons/portfolio.png"></a>
+    class="object-scale-down"      src="assets/images/icons/portfolio.png"></a>
           <a href="tel:+61-0466-265-845" alt="A styled telephone Icon with a phone link to contact +61-466-265-845."><img
-              class="object-scale-down" src="assets/images/icons/phone.PNG"></a>
-          <a href="mailto:b@justcallmeb.com"><img class="object-scale-down" src="assets/images/icons/email.PNG"
+        class="object-scale-down"      src="assets/images/icons/phone.PNG"></a>
+          <a href="mailto:b@justcallmeb.com" class="object-scale-down"><img src="assets/images/icons/email.PNG"
               alt="A styled email icon providing a email link to b@justcallmeB.com"></a>
-          <a href="https://www.instagram.com/exolvoppt" target=_blank><img class="object-scale-down" src="assets/images/icons/instagram.PNG"
+          <a href="https://www.instagram.com/exolvoppt" target=_blank class="object-scale-down"><img src="assets/images/icons/instagram.PNG"
               alt="A styled Instagram.com icon providing a hyperlink to the website."></a>
-          <a href="https://twitter.com/blmccavanagh"><img class="object-scale-down" src="assets/images/icons/twitter.PNG"
+          <a href="https://twitter.com/blmccavanagh" class="object-scale-down"><img src="assets/images/icons/twitter.PNG"
               alt="A styled Twitter.com icon providing a hyperlink to the website."></a>
           <a href="https://www.linkedin.com/in/blmccavanagh"
-            alt="A styled Linkedin.com icon providing a hyperlink to the website."><img class="object-scale-down"
+            alt="A styled Linkedin.com icon providing a hyperlink to the website." class="object-scale-down"><img
               src="assets/images/icons/linkedin.PNG"></a>
-          <a href="https://github.com/blmccavanagh"><img class="object-scale-down" src="assets/images/icons/github.PNG"
+          <a href="https://github.com/blmccavanagh" class="object-scale-down"><img src="assets/images/icons/github.PNG"
               alt="A styled GitHub.com icon providing a hyperlink to the user profile on the website."></a>
           <a href="assets/download-items/resume.pdf" download="Bridget McCavanagh - Resume"
             alt="A styled document icon providing a hyperlink to a resume document download."><img
-              class="object-scale-down" src="assets/images/icons/resume.JPG"></a>
+        class="object-scale-down"      src="assets/images/icons/resume.JPG"></a>
           <br>
         </section>
       </footer>

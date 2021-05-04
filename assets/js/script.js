@@ -10,7 +10,8 @@
 // 
 
 const myApiKey = "ae822aef9413bb77b74f555fff250166";
-const testCity = "Perth";
+const testCity = "Perth, AU";
+// let cityName = "";
 
 function searchLocation (city) {
     fetch(`https://api.openweathermap.org/data/2.5/weather?q=${city}&units=metric&appid=${myApiKey}`)
@@ -18,10 +19,16 @@ function searchLocation (city) {
         return response.json();
     })
     .then(function (data) {
-        let latSearch = data.coord.lat;
-        let lonSearch = data.coord.lon;
-        console.log(data, latSearch, lonSearch);
-        getWeather(latSearch, lonSearch); 
+
+        console.log(data);
+
+        const cityName = data.name;
+        // const country = data.sys.country;
+
+        const latSearch = data.coord.lat;
+        const lonSearch = data.coord.lon;
+
+        getWeather(latSearch, lonSearch, cityName); 
         
         
     });
@@ -29,62 +36,125 @@ function searchLocation (city) {
 
 searchLocation(testCity);
 
-function getWeather (lat, lon) {
+function getWeather (lat, lon, name) {
     fetch(`https://api.openweathermap.org/data/2.5/onecall?lat=${lat}&lon=${lon}&units=metric&appid=${myApiKey}`)
     .then(function (response) {
         return response.json();
     })
     .then(function (data) {
         console.log(data);
-        domBuilder(data);
+        domBuilder(data, name);
     });
 }
 
-function domBuilder (weather) {
+function domBuilder (weather, name) {
 
-    let mainCity = document.querySelector('#main-city');
-    mainCity.textContent = testCity;
+    const mainCity = document.querySelector('#main-city');
+    mainCity.textContent = name;
 
-    let mainTemp = document.querySelector('#main-temp');
+    // const mainIcon = document.querySelector('#main-icon');
+    // mainIcon.innerHtml = `${weather.current.weather[0].icon}`;
+
+    const weatherConditions = document.querySelector('#weather-cond');
+    weatherConditions.textContent = `${weather.current.weather[0].description}`
+
+    const mainTemp = document.querySelector('#main-temp');
     mainTemp.textContent = `Temp: ${weather.current.temp}°C`;
 
-    let mainMin = document.querySelector('#main-min');
-    mainTemp.textContent = `Temp: ${weather.current.temp}°C`;
+    const feelsLike = document.querySelector('#feels-like');
+    feelsLike.textContent = `feels like ${weather.current.feels_like}°C`;
+    // const feelsLike = `feels like ${weather.current.feels_like}°C`;
+    // mainTemp.appendChild(feelsLike);
 
-    let mainMax = document.querySelector('#main-max');
-    mainTemp.textContent = `Temp: ${weather.current.temp}°C`;
+    const mainMin = document.querySelector('#main-min');
+    mainMin.textContent = `Min Temp: ${weather.daily[0].temp.min}°C`;
+    // Object.daily[0].temp.max
 
-    let mainWind = document.querySelector('#main-wind');
+    const mainMax = document.querySelector('#main-max');
+    mainMax.textContent = `Max Temp: ${weather.daily[0].temp.max}°C`;
+
+    const mainWind = document.querySelector('#main-wind');
     mainWind.textContent = `Wind: ${weather.current.wind_speed} km/h`;
 
-    let mainHumid = document.querySelector('#main-humid');
+    const mainHumid = document.querySelector('#main-humid');
     mainHumid.textContent = `Humidity: ${weather.current.humidity}%`;
 
-    let mainUV = document.querySelector('#main-uv');
+    const mainUV = document.querySelector('#main-uv');
     mainUV.textContent = `UV Index: ${weather.current.uvi}`;
+
+    const sunrise = document.querySelector('#sunrise');
+    sunrise.textContent = `${weather.current.sunrise}`
+
+    const sunset = document.querySelector('#sunset');
+    sunset.textContent = `${weather.current.sunrise}`
+
+
+
+
+    const forecastOneTemp = document.querySelector('#temp-1');
+    forecastOneTemp.textContent = `Temp: ${weather.daily[1].temp.day}°C`;
+
+    const forecastOneWind = document.querySelector('#wind-1');
+    forecastOneWind.textContent = `Wind: ${weather.daily[1].wind_speed} km/h`;
+
+
+
+
+    const forecastTwoTemp = document.querySelector('#temp-2');
+    forecastTwoTemp.textContent = `Temp: ${weather.daily[2].temp.day}°C`;
+
+    const forecastTwoWind = document.querySelector('#wind-2');
+    forecastTwoWind.textContent = `Wind: ${weather.daily[2].wind_speed} km/h`;
+
+
+
+
+    const forecastThreeTemp = document.querySelector('#temp-3');
+    forecastThreeTemp.textContent = `Temp: ${weather.daily[3].temp.day}°C`;
+
+    const forecastThreeWind = document.querySelector('#wind-3');
+    forecastThreeWind.textContent = `Wind: ${weather.daily[3].wind_speed} km/h`;
+
+
+
+
+    const forecastFourTemp = document.querySelector('#temp-4');
+    forecastFourTemp.textContent = `Temp: ${weather.daily[4].temp.day}°C`;
+
+    const forecastFourWind = document.querySelector('#wind-4');
+    forecastFourWind.textContent = `Wind: ${weather.daily[4].wind_speed} km/h`;
+
+
+
+
+    const forecastFiveTemp = document.querySelector('#temp-5');
+    forecastFiveTemp.textContent = `Temp: ${weather.daily[5].temp.day}°C`;
+
+    const forecastFiveWind = document.querySelector('#wind-5');
+    forecastFiveWind.textContent = `Wind: ${weather.daily[5].wind_speed} km/h`;
 } 
 
-function uvCcolorCode(){
+function uvColorCode(){
     // Use the value from uvi
 
-    let uvi;
-    let currentUvi;
+    // let uvi;
+    let uvi = parseInt(mainUV);
 
     if (uvi >= 0 && uvi <= 2) {
         // inner text of main uv element
-        currentUvi.addClass('uvLow');
+        mainUV.addClass('uvLow');
     } else if (uvi > 2 && uvi <= 5) {
         // inner text of main uv element
-        currentUvi.addClass('uvMod');
+        mainUV.addClass('uvMod');
     } else if (uvi > 5 && uvi <= 7) {
         // inner text of main uv element
-        currentUvi.addClass('uvHigh');
+        mainUV.addClass('uvHigh');
     } else if (uvi > 7 && uvi <= 10) {
         // inner text of main uv element
-        currentUvi.addClass('uvVeryHigh');
+        mainUV.addClass('uvVeryHigh');
     } else if (uvi > 5 && uvi <= 7) {
         // inner text of main uv element
-        currentUvi.addClass('uvExtreme');
+        mainUV.addClass('uvExtreme');
     }
 }
 

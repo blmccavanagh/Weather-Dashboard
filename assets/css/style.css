@@ -3,7 +3,7 @@
 
 html {
     background-image: url(../images/background-image-1.jpg);
-    margin: 3rem;
+    margin: 4rem;
 }
 
 :root {
@@ -12,7 +12,8 @@ html {
 
 body {
     font-family: 'Poppins', sans-serif;
-    background-image: url(../images/background-image-light.png);
+    /* background-image: url(../images/background-image-xlight.png); */
+    background-color: white;
 }
 
 header {
@@ -27,19 +28,19 @@ h1 {
     font-size: 3.5rem;
 }
 
+.glowHeader {
+    color: #fff;
+    -webkit-animation: glowHeader 4s ease-in-out infinite alternate;
+    -moz-animation: glowHeader 4s ease-in-out infinite alternate;
+    animation: glowHeader 4s ease-in-out infinite alternate;
+}
+
 .handwriting {
     font-family: 'Homemade Apple', cursive;
 }
 
 .shadow {
     text-shadow: 3px 3px rgb(0, 0, 0)
-}
-
-.glow {
-    color: #fff;
-    -webkit-animation: glow 4s ease-in-out infinite alternate;
-    -moz-animation: glow 4s ease-in-out infinite alternate;
-    animation: glow 4s ease-in-out infinite alternate;
 }
 
 .uvLow {
@@ -80,6 +81,13 @@ footer {
     background-position: left;
     animation: grad-bg 10s infinite alternate;
 }
+
+.glow {
+    color: #fff;
+    -webkit-animation: glow 4s ease-in-out infinite alternate;
+    -moz-animation: glow 4s ease-in-out infinite alternate;
+    animation: glow 4s ease-in-out infinite alternate;
+}
   
 footer span:nth-of-type(2){
     font-family: 'Raleway Dots', cursive;
@@ -87,20 +95,31 @@ footer span:nth-of-type(2){
     animation: flicker 1.5s infinite alternate;
 }
   
-.flex-container > section {
+/* .flex-container > section {
     flex-wrap: nowrap;
     width: 100%;
     margin: 10px;
     text-align: center;
-}
+} */
   
-img {
+footer img {
     opacity: 0.2;
     border-radius: 1rem 0 1rem 0;
+    max-height: 4rem;
+    max-width: 4rem;
 }
   
-img:hover {
+footer img:hover {
     opacity: 1;
+}
+
+@keyframes glowHeader {
+    from {
+        text-shadow: 0 0 2px #fff, 0 0 4px #fff, 0 0 6px red, 0 0 8px orange, 0 0 10px yellow, 0 0 12px green, 0 0 14px blue, 0 0 16px purple, 0 0 18px rgb(255, 0, 221);
+    }
+    to {
+        text-shadow: 0 0 4px #fff, 0 0 6px green, 0 0 8px blue, 0 0 10px purple, 0 0 12px rgb(255, 0, 221), 0 0 14px red, 0 0 16px yellow, 0 0 18px orange;
+    }
 }
 
 @keyframes grad-bg {
