@@ -50,9 +50,9 @@
         <!-- div container for weather results -->
         <section class="w-3/4">
 
-            <div class="flex bg-white shadow-2xl rounded-lg">
+            <div class="flex">
                 <!-- border-solid border-4 border-black  -->
-            <div class="">
+            <div class="flex-grow bg-white shadow-2xl rounded-lg m-2">
             <!-- main weather results -->
             <h1 id="main-city"></h1>
             <div class="flex">
@@ -73,13 +73,17 @@
 
             </div>
 
-            <div class="items-center">
-            <img src="" alt="sunrise icon">
+            <div class="flex bg-white shadow-2xl rounded-lg m-2">
+            <div class="self-start m-2">
+            <img src="./assets/images/sunrise.png" alt="sunrise icon" class="sun bg-yellow-300 rounded-full"">
             <h3 id="sunrise"></h3>
+            </div>
 
-            <img src="" alt="sunset icon">
-            <h3 id="sunset"></h3>
+            <div class="self-end m-2">
+            <img src="./assets/images/sunset.png" alt="sunset icon" class="sun bg-orange-500 rounded-full">
+            <h3 id="sunset" class=""></h3>
 
+            </div>
             </div>
 
             </div>
@@ -92,35 +96,35 @@
                 <div class="grid grid-cols-1 lg:grid-cols-5 gap-4 m-2">
                     <!-- day 1 -->
                     <div class="bg-white shadow-inner rounded-lg">
-                        <p id="date-1">Date</p>
+                        <p id="date-1">Date<span id="icon-1"></span></p>
                         <p id="temp-1"></p>
                         <p id="wind-1"></p>
                         <p id="humid-1"></p>
                     </div>
                     <!-- day 2 -->
                     <div class="bg-white shadow-inner rounded-lg">
-                        <p id="date-2">Date</p>
+                        <p id="date-2">Date<span id="icon-2"></span></p>
                         <p id="temp-2"></p>
                         <p id="wind-2"></p>
                         <p id="humid-2"></p>
                     </div>
                     <!-- day 3 -->
                     <div class="bg-white shadow-inner rounded-lg">
-                        <p id="date-3">Date</p>
+                        <p id="date-3">Date<span id="icon-3"></span></p>
                         <p id="temp-3"></p>
                         <p id="wind-3"></p>
                         <p id="humid-3"></p>
                     </div>
                     <!-- day 4 -->
                     <div class="bg-white shadow-inner rounded-lg">
-                        <p id="date-4">Date</p>
+                        <p id="date-4">Date<span id="icon-4"></span></p>
                         <p id="temp-4"></p>
                         <p id="wind-4"></p>
                         <p id="humid-4"></p>
                     </div>
                     <!-- day 5 -->
                     <div class="bg-white shadow-inner rounded-lg">
-                        <p id="date-5">Date</p>
+                        <p id="date-5">Date<span id="icon-5"></span></p>
                         <p id="temp-5"></p>
                         <p id="wind-5"></p>
                         <p id="humid-5"></p>
