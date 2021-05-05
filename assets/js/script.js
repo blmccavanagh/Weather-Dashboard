@@ -100,10 +100,10 @@ function domBuilder (weather, name, country) {
     feelsLike.textContent = `feels like ${weather.current.feels_like}°C`;
 
     const mainMin = document.querySelector('#main-min');
-    mainMin.textContent = `Min Temp: ${weather.daily[1].temp.min}°C`;
+    mainMin.textContent = `Min Temp: ${weather.daily[0].temp.min}°C`;
 
     const mainMax = document.querySelector('#main-max');
-    mainMax.textContent = `Max Temp: ${weather.daily[1].temp.max}°C`;
+    mainMax.textContent = `Max Temp: ${weather.daily[0].temp.max}°C`;
 
     const mainWind = document.querySelector('#main-wind');
     mainWind.textContent = `Wind: ${weather.current.wind_speed} km/h`;
@@ -123,77 +123,77 @@ function domBuilder (weather, name, country) {
 
     
     const forecastOneDate = document.querySelector('#date-1');
-    let unixDateF1 = new Date(weather.daily[2].dt*1000).toLocaleDateString('en-AU');
+    let unixDateF1 = new Date(weather.daily[1].dt*1000).toLocaleDateString('en-AU');
     forecastOneDate.textContent = unixDateF1;
 
     const forecastOneTemp = document.querySelector('#temp-1');
-    forecastOneTemp.textContent = `Temp: ${weather.daily[2].temp.day}°C`;
+    forecastOneTemp.textContent = `Temp: ${weather.daily[1].temp.day}°C`;
     
     const forecastOneWind = document.querySelector('#wind-1');
-    forecastOneWind.textContent = `Wind: ${weather.daily[2].wind_speed} km/h`;
+    forecastOneWind.textContent = `Wind: ${weather.daily[1].wind_speed} km/h`;
     
     const forecastOneHumid = document.querySelector('#humid-1');
-    forecastOneHumid.textContent = `Humidity: ${weather.daily[2].humidity}%`;
+    forecastOneHumid.textContent = `Humidity: ${weather.daily[1].humidity}%`;
     
     
     
     const forecastTwoDate = document.querySelector('#date-2');
-    let unixDateF2 = new Date(weather.daily[3].dt*1000).toLocaleDateString('en-AU');
+    let unixDateF2 = new Date(weather.daily[2].dt*1000).toLocaleDateString('en-AU');
     forecastTwoDate.textContent = unixDateF2;
 
     const forecastTwoTemp = document.querySelector('#temp-2');
-    forecastTwoTemp.textContent = `Temp: ${weather.daily[3].temp.day}°C`;
+    forecastTwoTemp.textContent = `Temp: ${weather.daily[2].temp.day}°C`;
     
     const forecastTwoWind = document.querySelector('#wind-2');
-    forecastTwoWind.textContent = `Wind: ${weather.daily[3].wind_speed} km/h`;
+    forecastTwoWind.textContent = `Wind: ${weather.daily[2].wind_speed} km/h`;
     
     const forecastTwoHumid = document.querySelector('#humid-2');
-    forecastTwoHumid.textContent = `Humidity: ${weather.daily[3].humidity}%`;
+    forecastTwoHumid.textContent = `Humidity: ${weather.daily[2].humidity}%`;
     
 
     
     const forecastThreeDate = document.querySelector('#date-3');
-    let unixDateF3 = new Date(weather.daily[4].dt*1000).toLocaleDateString('en-AU');
+    let unixDateF3 = new Date(weather.daily[3].dt*1000).toLocaleDateString('en-AU');
     forecastThreeDate.textContent = unixDateF3;
 
     const forecastThreeTemp = document.querySelector('#temp-3');
-    forecastThreeTemp.textContent = `Temp: ${weather.daily[4].temp.day}°C`;
+    forecastThreeTemp.textContent = `Temp: ${weather.daily[3].temp.day}°C`;
 
     const forecastThreeWind = document.querySelector('#wind-3');
-    forecastThreeWind.textContent = `Wind: ${weather.daily[4].wind_speed} km/h`;
+    forecastThreeWind.textContent = `Wind: ${weather.daily[3].wind_speed} km/h`;
 
     const forecastThreeHumid = document.querySelector('#humid-3');
-    forecastThreeHumid.textContent = `Humidity: ${weather.daily[4].humidity}%`;
+    forecastThreeHumid.textContent = `Humidity: ${weather.daily[3].humidity}%`;
     
 
 
     const forecastFourDate = document.querySelector('#date-4');
-    let unixDateF4 = new Date(weather.daily[5].dt*1000).toLocaleDateString('en-AU');
+    let unixDateF4 = new Date(weather.daily[4].dt*1000).toLocaleDateString('en-AU');
     forecastFourDate.textContent = unixDateF4;
 
     const forecastFourTemp = document.querySelector('#temp-4');
-    forecastFourTemp.textContent = `Temp: ${weather.daily[5].temp.day}°C`;
+    forecastFourTemp.textContent = `Temp: ${weather.daily[4].temp.day}°C`;
 
     const forecastFourWind = document.querySelector('#wind-4');
-    forecastFourWind.textContent = `Wind: ${weather.daily[5].wind_speed} km/h`;
+    forecastFourWind.textContent = `Wind: ${weather.daily[4].wind_speed} km/h`;
 
     const forecastFourHumid = document.querySelector('#humid-4');
-    forecastFourHumid.textContent = `Humidity: ${weather.daily[5].humidity}%`;
+    forecastFourHumid.textContent = `Humidity: ${weather.daily[4].humidity}%`;
     
 
 
     const forecastFiveDate = document.querySelector('#date-5');
-    let unixDateF5 = new Date(weather.daily[6].dt*1000).toLocaleDateString('en-AU');
+    let unixDateF5 = new Date(weather.daily[5].dt*1000).toLocaleDateString('en-AU');
     forecastFiveDate.textContent = unixDateF5;
 
     const forecastFiveTemp = document.querySelector('#temp-5');
-    forecastFiveTemp.textContent = `Temp: ${weather.daily[6].temp.day}°C`;
+    forecastFiveTemp.textContent = `Temp: ${weather.daily[5].temp.day}°C`;
 
     const forecastFiveWind = document.querySelector('#wind-5');
-    forecastFiveWind.textContent = `Wind: ${weather.daily[6].wind_speed} km/h`;
+    forecastFiveWind.textContent = `Wind: ${weather.daily[5].wind_speed} km/h`;
     
     const forecastFiveHumid = document.querySelector('#humid-5');
-    forecastFiveHumid.textContent = `Humidity: ${weather.daily[6].humidity}%`;
+    forecastFiveHumid.textContent = `Humidity: ${weather.daily[5].humidity}%`;
 
 
 
