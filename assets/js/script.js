@@ -1,26 +1,26 @@
-// const moment = require('moment.js');
-// let now = moment();
-
+let now = moment();
 const myApiKey = "ae822aef9413bb77b74f555fff250166";
-
 const defaultLocation = "Perth, AU";
+let searchHistory = JSON.parse(localStorage.getItem('prevSearch'))||[];
+const cityInput = document.querySelector('#location-search');
+const searchButton = document.querySelector('#search-button');
+let ul = document.querySelector('#search-history')
+
 
 $(document).ready(function(){
     searchLocation(defaultLocation);
     // setInterval(updateTimeSensitiveFunctions, 1000);
-    // load();
 });
 
-// function updateTime(){
-    //     now = moment();
-// }
-
-// function load() {
-    //     localStorage.getItem
-    // }
-    
-    const cityInput = document.querySelector('#location-search');
-const searchButton = document.querySelector('#search-button');
+for (i = 0; i < searchHistory.length; i++) {
+    let li = document.createElement('li');
+    let button = document.createElement('button');
+    button.setAttribute('class', 'prevSearchButton');
+    button.textContent = searchHistory[i];
+    button.value = searchHistory[i];
+    li.append(button);
+    ul.append(li);
+} 
 
 cityInput.addEventListener('keypress', function (e) {
     if (e.key === 'Enter') {
@@ -30,11 +30,20 @@ cityInput.addEventListener('keypress', function (e) {
 
 searchButton.addEventListener('click', userSearch);
 
+$('.prevSearchButton').on('click', function () {
+    searchLocation(this.value);
+});
+
+
 function userSearch () {
     const inputValue = cityInput.value;
     console.log(inputValue);
     searchLocation(inputValue);
-    localStorage.setItem(inputValue);
+    if (searchHistory.length === 10) {
+        searchHistory[0] = inputValue;
+    }
+    searchHistory.unshift(inputValue);
+    localStorage.setItem('prevSearch', JSON.stringify(searchHistory));
 }
 
 function searchLocation (city) {
@@ -72,22 +81,21 @@ function getWeather (lat, lon, name, country) {
 function domBuilder (weather, name, country) {
     
     let unixDate = new Date(weather.current.dt*1000).toLocaleDateString('en-GB');
-    const iconLocation = `https://openweathermap.org/img/wn/${weather.current.weather[0].icon.value}@2x.png`;
+    const iconLocation = `https://openweathermap.org/img/wn/${weather.current.weather[0].icon}@2x.png`;
     
     const mainCity = document.querySelector('#main-city');
     mainCity.textContent = `${name}, ${country}`;
 
-    // const icon = document.querySelector('#main-icon');
-    // const mainIcon = document.createElement('img');
-    // image.src = iconLocation;
-    // icon.appendChild(mainIcon);
-    // mainIcon.innerHtml = `${weather.current.weather[0].icon}`;
+    const icon = document.querySelector('#main-icon');
+    const mainIcon = document.createElement('img');
+    mainIcon.setAttribute('src', iconLocation);
+    icon.appendChild(mainIcon);
 
     const currentDay = document.querySelector('#current-day');
-    // currentDay.textContent = now.format('dddd');
+    currentDay.textContent = now.format('dddd');
 
     const currentDate = document.querySelector('#current-date');
-    // currentDate.textContent = now.format('MMMM Do YYYY');
+    currentDate.textContent = now.format('MMMM Do YYYY');
 
     const weatherConditions = document.querySelector('#weather-cond');
     weatherConditions.textContent = `${weather.current.weather[0].description}`;
@@ -125,6 +133,11 @@ function domBuilder (weather, name, country) {
     const forecastOneDate = document.querySelector('#date-1');
     let unixDateF1 = new Date(weather.daily[1].dt*1000).toLocaleDateString('en-AU');
     forecastOneDate.textContent = unixDateF1;
+
+    const forecastOneIcon = document.querySelector('#icon-1');
+    const icon1 = document.createElement('img');
+    icon1.setAttribute('src', iconLocation);
+    forecastOneIcon.appendChild(icon1);
 
     const forecastOneTemp = document.querySelector('#temp-1');
     forecastOneTemp.textContent = `Temp: ${weather.daily[1].temp.day}°C`;
@@ -203,16 +216,14 @@ function domBuilder (weather, name, country) {
 function uvColorCode(weather){
     // Use the value from uvi
     const uvi = weather.current.uvi;
-
+    let uviRating = '';
     const mainUV = document.querySelector('#main-uv');
-    // let uviRating = '';
-    mainUV.textContent = `UV Index: ${uvi}`;
     
     
     if (uvi >= 0 && uvi <= 2) {
         // inner text of main uv element
         mainUV.classList.add('bg-green-400');
-        // uviRating = '[Low]';
+        uviRating = '[Low]';
         // mainUV.appendChild(uviRating);
     } else if (uvi > 2 && uvi <= 5) {
         // inner text of main uv element
@@ -228,4 +239,7 @@ function uvColorCode(weather){
         // inner text of main uv element
         mainUV.addClass('uvExtreme');
     }
+    
+    mainUV.textContent = `UV Index: ${uvi} ${uviRating}`;
+
 }
