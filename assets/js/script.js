@@ -15,7 +15,7 @@ $(document).ready(function(){
 for (i = 0; i < searchHistory.length; i++) {
     let li = document.createElement('li');
     let button = document.createElement('button');
-    button.setAttribute('class', 'prevSearchButton');
+    button.setAttribute('class', 'prevSearchButton uppercase bg-blue-100 border-2 border-blue-800 m-2 p-2 rounded-lg w-4/5 hover:bg-blue-300');
     button.textContent = searchHistory[i];
     button.value = searchHistory[i];
     li.append(button);
@@ -129,15 +129,17 @@ function domBuilder (weather, name, country) {
     sunset.textContent = sunsetTime;
     
 
-    
+    const forecastOneDay = document.querySelector('#day-1');
+    forecastOneDay.textContent = moment().add(1, 'days').format("dddd");
+
     const forecastOneDate = document.querySelector('#date-1');
     let unixDateF1 = new Date(weather.daily[1].dt*1000).toLocaleDateString('en-AU');
     forecastOneDate.textContent = unixDateF1;
 
-    const forecastOneIcon = document.querySelector('#icon-1');
-    const icon1 = document.createElement('img');
-    icon1.setAttribute('src', iconLocation);
-    forecastOneIcon.appendChild(icon1);
+    // const forecastOneIcon = document.querySelector('#icon-1');
+    // const icon1 = document.createElement('img');
+    // icon1.setAttribute('src', iconLocation);
+    // forecastOneIcon.appendChild(icon1);
 
     const forecastOneTemp = document.querySelector('#temp-1');
     forecastOneTemp.textContent = `Temp: ${weather.daily[1].temp.day}°C`;
@@ -149,7 +151,9 @@ function domBuilder (weather, name, country) {
     forecastOneHumid.textContent = `Humidity: ${weather.daily[1].humidity}%`;
     
     
-    
+    const forecastTwoDay = document.querySelector('#day-2');
+    forecastTwoDay.textContent = moment().add(2, 'days').format("dddd");
+
     const forecastTwoDate = document.querySelector('#date-2');
     let unixDateF2 = new Date(weather.daily[2].dt*1000).toLocaleDateString('en-AU');
     forecastTwoDate.textContent = unixDateF2;
@@ -164,7 +168,9 @@ function domBuilder (weather, name, country) {
     forecastTwoHumid.textContent = `Humidity: ${weather.daily[2].humidity}%`;
     
 
-    
+    const forecastThreeDay = document.querySelector('#day-3');
+    forecastThreeDay.textContent = moment().add(3, 'days').format("dddd");
+
     const forecastThreeDate = document.querySelector('#date-3');
     let unixDateF3 = new Date(weather.daily[3].dt*1000).toLocaleDateString('en-AU');
     forecastThreeDate.textContent = unixDateF3;
@@ -179,6 +185,8 @@ function domBuilder (weather, name, country) {
     forecastThreeHumid.textContent = `Humidity: ${weather.daily[3].humidity}%`;
     
 
+    const forecastFourDay = document.querySelector('#day-4');
+    forecastFourDay.textContent = moment().add(4, 'days').format("dddd");
 
     const forecastFourDate = document.querySelector('#date-4');
     let unixDateF4 = new Date(weather.daily[4].dt*1000).toLocaleDateString('en-AU');
@@ -194,6 +202,8 @@ function domBuilder (weather, name, country) {
     forecastFourHumid.textContent = `Humidity: ${weather.daily[4].humidity}%`;
     
 
+    const forecastFiveDay = document.querySelector('#day-5');
+    forecastFiveDay.textContent = moment().add(5, 'days').format("dddd");
 
     const forecastFiveDate = document.querySelector('#date-5');
     let unixDateF5 = new Date(weather.daily[5].dt*1000).toLocaleDateString('en-AU');
@@ -214,30 +224,26 @@ function domBuilder (weather, name, country) {
 } 
 
 function uvColorCode(weather){
-    // Use the value from uvi
+
     const uvi = weather.current.uvi;
     let uviRating = '';
     const mainUV = document.querySelector('#main-uv');
     
-    
     if (uvi >= 0 && uvi <= 2) {
-        // inner text of main uv element
         mainUV.classList.add('bg-green-400');
         uviRating = '[Low]';
-        // mainUV.appendChild(uviRating);
     } else if (uvi > 2 && uvi <= 5) {
-        // inner text of main uv element
-        mainUV.addClass('.uvMod');
-        // mainUV.innerHTML('[Moderate]');
+        mainUV.addClass('bg-yellow-400');
+        uviRating = '[Moderate]';
     } else if (uvi > 5 && uvi <= 7) {
-        // inner text of main uv element
-        mainUV.addClass('uvHigh');
+        mainUV.addClass('bg-orange-400');
+        uviRating = '[High]';
     } else if (uvi > 7 && uvi <= 10) {
-        // inner text of main uv element
-        mainUV.addClass('uvVeryHigh');
+        mainUV.addClass('bg-red-400');
+        uviRating = '[Very High]';
     } else if (uvi > 5 && uvi <= 7) {
-        // inner text of main uv element
-        mainUV.addClass('uvExtreme');
+        mainUV.addClass('bg-violet-400');
+        uviRating = '[Extreme]';
     }
     
     mainUV.textContent = `UV Index: ${uvi} ${uviRating}`;

@@ -36,37 +36,34 @@ header h1 {
     animation: glowHeader 4s ease-in-out infinite alternate;
 }
 
-.handwriting {
-    font-family: 'Homemade Apple', cursive;
-}
 
 .shadow {
     text-shadow: 3px 3px rgb(0, 0, 0)
 }
 
+.tip {
+    font-size: 0.7rem;
+    font-weight: bold;
+    text-transform: uppercase;
+    text-align: center;
+}
+
+main h1 {
+    font-size: 2.5rem;
+    font-weight: bolder;
+}
+
+main h2 {
+    font-size: 1.5rem;
+}
+
+main h3 {
+    font-size: 1rem;
+}
+
 .sun {
     max-width: 100px
 }
-
-/* .uvLow {
-    background-color: green;
-}
-
-.uvMod {
-    background-color: yellow;
-}
-
-.uvHigh {
-    background-color: orange;
-}
-
-.uvVeryHigh {
-    background-color: red;
-}
-
-.uvExtreme {
-    background-color: violet;
-} */
 
 footer {
     font-size: 1rem;
@@ -77,7 +74,11 @@ footer {
     color: white;
     border-radius: 6rem 2rem;
 }
-  
+
+.handwriting {
+    font-family: 'Homemade Apple', cursive;
+}
+
 #footer {
     /* gradiet Varaiable */
     --gradient: linear-gradient(45deg, #000000, #111111, #333333, #555555, #777777);

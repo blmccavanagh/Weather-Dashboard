@@ -13,127 +13,140 @@
 
 <body>
 
-<div class="container p-4">
+    <div class="container p-4">
 
-    <header class="bg-blue-400">
+        <header class="bg-blue-400">
 
-        <h1 class="glowHeader">Weather Dashboard</h1>
+            <h1 class="glowHeader">Weather Dashboard</h1>
 
-        <nav>
+            <nav>
 
-        </nav>
+            </nav>
 
-    </header>
+        </header>
 
 
 
         <!-- <input class="border border-transparent focus:outline-none focus:ring-2 focus:ring-purple-600 focus:border-transparent ...">
         <button class="bg-purple-600 hover:bg-purple-700 focus:outline-none focus:ring-2 focus:ring-purple-600 focus:ring-opacity-50 ..."> -->
 
-    <!-- grid section -->
-    <main class="flex">
+        <!-- grid section -->
+        <main class="flex space-x-2">
 
-        <aside class="w-1/4 m-4 shadow-inner">
-            <!-- search bar -->
-            <h2>Enter City:</h2>
-            <section>
-                <input id="location-search" type="text" placeholder="Perth, AU" class="border-2 border-blue-400 border-solid rounded-md focus:outline-none focus:ring-2 focus:ring-blue-600">
-                <!-- border-2 border-blue-400 border-solid rounded-md -->
-            </section>
-            <p>Top Tip! Refine your search by including the country code.</p>
-            <button id="search-button" class="bg-blue-400 hover:bg-blue-600 content-center">Search</button>
-            <!-- previous search results -->
-            <ul id="search-history"></ul>
+            <aside class="w-1/4 m-4 shadow-inner mx-auto bg-blue-200">
+                <!-- search bar -->
+                <h2>Enter City:</h2>
+                <section>
+                    <input id="location-search" type="text" placeholder="Perth, AU" class="bg-gray-300 border-2 border-blue-400 border-solid rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-600 focus:bg-white w-5/6 p-3 m-3">
+                    <!-- border-2 border-blue-400 border-solid rounded-md -->
+                </section>
+                <p class="tip">Top Tip! Refine your search by including the country code: <span class="italic"> CITY, COUNTRY CODE</span></p>
+                <button id="search-button" class="bg-white border-2 border-blue-400 border-solid rounded-lg hover:bg-orange-200 text-center m-2 p-2 w-4/5">Search</button>
+                <!-- class="border-2 border-blue-400 border-solid rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-600 w-5/6 p-3 m-3" -->
+                <!-- previous search results -->
+                <ul id="search-history"></ul>
 
-        </aside>
+            </aside>
 
-        <!-- div container for weather results -->
-        <section class="w-3/4">
+            <!-- div container for weather results -->
+            <section class="w-3/4">
 
-            <div class="flex">
-                <!-- border-solid border-4 border-black  -->
-            <div class="flex-grow bg-white shadow-2xl rounded-lg m-2">
-            <!-- main weather results -->
-            <h1 id="main-city"></h1>
-            <div class="flex">
-                <!-- <img src="" alt="weather icon"> -->
-                <div id="main-icon"></div>
-                <div>
-                    <h2 id="current-day"></h2>
-                    <h3 id="current-date"></h3>
-                    <h2 id="weather-cond">Weather conditions</h2>
+                <div class="flex">
+                    <!-- border-solid border-4 border-black  -->
+                    <div class="flex-grow bg-white shadow-2xl rounded-lg m-2">
+                        <!-- main weather results -->
+                        <h1 id="main-city"></h1>
+                        <div class="flex">
+                            <!-- <img src="" alt="weather icon"> -->
+                            <div id="main-icon"></div>
+                            <div>
+                                <h2 id="current-day"></h2>
+                                <h3 id="current-date"></h3>
+                                <h2 id="weather-cond"></h2>
+                            </div>
+                        </div>
+                        <div class="inline-flex self-center justify-content-center text-center">
+                        <h2 id="main-temp" class="m-1 p-1 shadow-inner border-transparent rounded-lg"></h2>
+                        <h3 id="feels-like" class="m-1 p-1 shadow-inner border-transparent rounded-lg"></h3>
+                        <p id="main-min" class="m-1 p-1 shadow-inner border-transparent rounded-lg"></p>
+                        <p id="main-max" class="m-1 p-1 shadow-inner border-transparent rounded-lg"></p>
+                        </div>
+                        <div class="inline-flex self-center justify-content-center text-center mt-1 w-auto">
+                        <p id="main-wind" class="shadow-inner w-1/3 m-1 p-1 border-transparent rounded-lg"></p>
+                        <p id="main-humid" class="shadow-inner w-1/3 m-1 p-1 border-transparent rounded-lg"></p>
+                        <p class="shadow-inner w-1/3 m-1 p-1 border-transparent rounded-lg"><span id="main-uv"></span></p>
+                        </div>
+
                 </div>
-            </div>
-            <h2 id="main-temp" class="inline"></h2>
-            <h3 id="feels-like" class="inline"></h3>
-            <p id="main-min"></p>
-            <p id="main-max"></p>
-            <p id="main-wind"></p>
-            <p id="main-humid"></p>
-            <p><span id="main-uv"></span></p>
 
-            </div>
-
-            <div class="flex shadow-2xl rounded-lg m-2 bg-gradient-to-t from-red-400 via-orange-600 via-orange-200 via-yellow-300 to-yellow-100">
-            <div class="self-start m-2">
-            <img src="./assets/images/sunrise.png" alt="sunrise icon" class="sun rounded-full bg-gradient-to-t from-orange-200 via-yellow-300 to-yellow-100 shadow-inner">
-            <h3 id="sunrise"></h3>
-            </div>
-
-            <div class="self-end m-2">
-            <img src="./assets/images/sunset.png" alt="sunset icon" class="sun rounded-full bg-gradient-to-b from-orange-600 via-orange-400 via-orange-200 via-pink-200 to-red-500 shadow-2xl">
-            <h3 id="sunset" class=""></h3>
-
-            </div>
-            </div>
-
-            </div>
-
-            <br>
-
-            <!-- forecast -->
-            <div class="p-2 shadow-2xl rounded-lg bg-gradient-to-r from-blue-100 to-blue-200">
-            <h2 class="shadow-inner m-3 rounded-lg">5 Day Forecast:</h2>
-                <div class="grid grid-cols-1 lg:grid-cols-5 gap-4 m-2">
-                    <!-- day 1 -->
-                    <div class="bg-white shadow-inner rounded-lg">
-                        <p id="date-1">Date<span id="icon-1"></span></p>
-                        <p id="temp-1"></p>
-                        <p id="wind-1"></p>
-                        <p id="humid-1"></p>
+                <div
+                    class="flex shadow-2xl rounded-lg m-2 bg-gradient-to-t from-red-400 via-orange-600 via-orange-200 via-yellow-300 to-yellow-100">
+                    <div class="self-start m-2">
+                        <img src="./assets/images/sunrise.png" alt="sunrise icon"
+                            class="sun rounded-full bg-gradient-to-t from-orange-200 via-yellow-300 to-yellow-100 shadow-inner">
+                        <h3 id="sunrise"></h3>
                     </div>
-                    <!-- day 2 -->
-                    <div class="bg-white shadow-inner rounded-lg">
-                        <p id="date-2">Date<span id="icon-2"></span></p>
-                        <p id="temp-2"></p>
-                        <p id="wind-2"></p>
-                        <p id="humid-2"></p>
-                    </div>
-                    <!-- day 3 -->
-                    <div class="bg-white shadow-inner rounded-lg">
-                        <p id="date-3">Date<span id="icon-3"></span></p>
-                        <p id="temp-3"></p>
-                        <p id="wind-3"></p>
-                        <p id="humid-3"></p>
-                    </div>
-                    <!-- day 4 -->
-                    <div class="bg-white shadow-inner rounded-lg">
-                        <p id="date-4">Date<span id="icon-4"></span></p>
-                        <p id="temp-4"></p>
-                        <p id="wind-4"></p>
-                        <p id="humid-4"></p>
-                    </div>
-                    <!-- day 5 -->
-                    <div class="bg-white shadow-inner rounded-lg">
-                        <p id="date-5">Date<span id="icon-5"></span></p>
-                        <p id="temp-5"></p>
-                        <p id="wind-5"></p>
-                        <p id="humid-5"></p>
-                    </div>
-                    </div>
-            </div>
 
-        </section>
+                    <div class="self-end m-2">
+                        <img src="./assets/images/sunset.png" alt="sunset icon"
+                            class="sun rounded-full bg-gradient-to-b from-orange-600 via-orange-400 via-orange-200 via-pink-200 to-red-500 shadow-2xl">
+                        <h3 id="sunset" class=""></h3>
+
+                    </div>
+                </div>
+
+    </div>
+
+    <br>
+
+    <!-- forecast -->
+    <div class="p-2 shadow-2xl rounded-lg bg-gradient-to-r from-blue-100 to-blue-200">
+        <h2 class="shadow-inner m-3 rounded-lg">5 Day Forecast:</h2>
+        <div class="grid grid-cols-1 lg:grid-cols-5 gap-4 m-2 text-center">
+            <!-- day 1 -->
+            <div class="bg-white shadow-inner rounded-lg">
+                <h2 id="day-1"><span id="icon-1"></span></h2>
+                <p id="date-1"></span></p>
+                <p id="temp-1"></p>
+                <p id="wind-1"></p>
+                <p id="humid-1"></p>
+            </div>
+            <!-- day 2 -->
+            <div class="bg-white shadow-inner rounded-lg">
+                <h2 id="day-2"><span id="icon-2"></span></h2>
+                <p id="date-2"></span></p>
+                <p id="temp-2"></p>
+                <p id="wind-2"></p>
+                <p id="humid-2"></p>
+            </div>
+            <!-- day 3 -->
+            <div class="bg-white shadow-inner rounded-lg">
+                <h2 id="day-3"><span id="icon-3"></span></h2>
+                <p id="date-3"></span></p>
+                <p id="temp-3"></p>
+                <p id="wind-3"></p>
+                <p id="humid-3"></p>
+            </div>
+            <!-- day 4 -->
+            <div class="bg-white shadow-inner rounded-lg">
+                <h2 id="day-4"><span id="icon-4"></span></h2>
+                <p id="date-4"></span></p>
+                <p id="temp-4"></p>
+                <p id="wind-4"></p>
+                <p id="humid-4"></p>
+            </div>
+            <!-- day 5 -->
+            <div class="bg-white shadow-inner rounded-lg">
+                <h2 id="day-5"><span id="icon-5"></span></h2>
+                <p id="date-5"></span></p>
+                <p id="temp-5"></p>
+                <p id="wind-5"></p>
+                <p id="humid-5"></p>
+            </div>
+        </div>
+    </div>
+
+    </section>
 
     </main>
 
@@ -141,31 +154,36 @@
 
     <footer id="footer" class="handwriting shadow px-4 shadow-2xl"><span class="glow">Made by </span><span>B.</span>
         <section class="grid grid-cols-4 lg:grid-cols-8 grid-rows-2 lg:grid-rows-1 gap-2">
-          <a href="https://blmccavanagh.github.io/Professional-Portfolio/" alt="A styled personal website icon providing a hyperlink to Bridget McCavanagh's professional portfolio website."><img
-    class="object-scale-down"      src="assets/images/icons/portfolio.png"></a>
-          <a href="tel:+61-0466-265-845" alt="A styled telephone Icon with a phone link to contact +61-466-265-845."><img
-        class="object-scale-down"      src="assets/images/icons/phone.PNG"></a>
-          <a href="mailto:b@justcallmeb.com" class="object-scale-down"><img src="assets/images/icons/email.PNG"
-              alt="A styled email icon providing a email link to b@justcallmeB.com"></a>
-          <a href="https://www.instagram.com/exolvoppt" target=_blank class="object-scale-down"><img src="assets/images/icons/instagram.PNG"
-              alt="A styled Instagram.com icon providing a hyperlink to the website."></a>
-          <a href="https://twitter.com/blmccavanagh" class="object-scale-down"><img src="assets/images/icons/twitter.PNG"
-              alt="A styled Twitter.com icon providing a hyperlink to the website."></a>
-          <a href="https://www.linkedin.com/in/blmccavanagh"
-            alt="A styled Linkedin.com icon providing a hyperlink to the website." class="object-scale-down"><img
-              src="assets/images/icons/linkedin.PNG"></a>
-          <a href="https://github.com/blmccavanagh" class="object-scale-down"><img src="assets/images/icons/github.PNG"
-              alt="A styled GitHub.com icon providing a hyperlink to the user profile on the website."></a>
-          <a href="assets/download-items/resume.pdf" download="Bridget McCavanagh - Resume"
-            alt="A styled document icon providing a hyperlink to a resume document download."><img
-        class="object-scale-down"      src="assets/images/icons/resume.JPG"></a>
-          <br>
+            <a href="https://blmccavanagh.github.io/Professional-Portfolio/"
+                alt="A styled personal website icon providing a hyperlink to Bridget McCavanagh's professional portfolio website."><img
+                    class="object-scale-down" src="assets/images/icons/portfolio.png"></a>
+            <a href="tel:+61-0466-265-845"
+                alt="A styled telephone Icon with a phone link to contact +61-466-265-845."><img
+                    class="object-scale-down" src="assets/images/icons/phone.PNG"></a>
+            <a href="mailto:b@justcallmeb.com" class="object-scale-down"><img src="assets/images/icons/email.PNG"
+                    alt="A styled email icon providing a email link to b@justcallmeB.com"></a>
+            <a href="https://www.instagram.com/exolvoppt" target=_blank class="object-scale-down"><img
+                    src="assets/images/icons/instagram.PNG"
+                    alt="A styled Instagram.com icon providing a hyperlink to the website."></a>
+            <a href="https://twitter.com/blmccavanagh" class="object-scale-down"><img
+                    src="assets/images/icons/twitter.PNG"
+                    alt="A styled Twitter.com icon providing a hyperlink to the website."></a>
+            <a href="https://www.linkedin.com/in/blmccavanagh"
+                alt="A styled Linkedin.com icon providing a hyperlink to the website." class="object-scale-down"><img
+                    src="assets/images/icons/linkedin.PNG"></a>
+            <a href="https://github.com/blmccavanagh" class="object-scale-down"><img
+                    src="assets/images/icons/github.PNG"
+                    alt="A styled GitHub.com icon providing a hyperlink to the user profile on the website."></a>
+            <a href="assets/download-items/resume.pdf" download="Bridget McCavanagh - Resume"
+                alt="A styled document icon providing a hyperlink to a resume document download."><img
+                    class="object-scale-down" src="assets/images/icons/resume.JPG"></a>
+            <br>
         </section>
-      </footer>
+    </footer>
 
-      <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.24.0/moment.min.js"></script>
-      <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
-      <script src="./assets/js/script.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.24.0/moment.min.js"></script>
+    <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+    <script src="./assets/js/script.js"></script>
 
 </body>
 
