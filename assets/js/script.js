@@ -1,30 +1,40 @@
-// api.openweathermap.org/data/2.5/weather?q={city name},{state code},{country code}&appid={API key}
+// const moment = require('moment.js');
+// let now = moment();
 
-
-// https://api.openweathermap.org/data/2.5/onecall?lat={lat}&lon={lon}&exclude={part}&appid={API key}
-
-// My API key
-// ae822aef9413bb77b74f555fff250166
 const myApiKey = "ae822aef9413bb77b74f555fff250166";
 
 const defaultLocation = "Perth, AU";
 
-$(document).ready(searchLocation(defaultLocation));
+$(document).ready(function(){
+    searchLocation(defaultLocation);
+    // setInterval(updateTimeSensitiveFunctions, 1000);
+    // load();
+});
 
-// 
+// function updateTime(){
+    //     now = moment();
+// }
 
-
-// let now = Date();
-
-const cityInput = document.querySelector('#location-search');
+// function load() {
+    //     localStorage.getItem
+    // }
+    
+    const cityInput = document.querySelector('#location-search');
 const searchButton = document.querySelector('#search-button');
 
-searchButton.addEventListener('click', searchButtonClick);
+cityInput.addEventListener('keypress', function (e) {
+    if (e.key === 'Enter') {
+        userSearch();
+    }
+});
 
-function searchButtonClick () {
+searchButton.addEventListener('click', userSearch);
+
+function userSearch () {
     const inputValue = cityInput.value;
     console.log(inputValue);
     searchLocation(inputValue);
+    localStorage.setItem(inputValue);
 }
 
 function searchLocation (city) {
@@ -33,7 +43,7 @@ function searchLocation (city) {
         return response.json();
     })
     .then(function (data) {
-
+        
         console.log(data);
 
         const cityName = data.name;
@@ -41,7 +51,7 @@ function searchLocation (city) {
 
         const latSearch = data.coord.lat;
         const lonSearch = data.coord.lon;
-
+        
         getWeather(latSearch, lonSearch, cityName, countryCode); 
         
         
@@ -60,23 +70,24 @@ function getWeather (lat, lon, name, country) {
 }
 
 function domBuilder (weather, name, country) {
-
+    
     let unixDate = new Date(weather.current.dt*1000).toLocaleDateString('en-GB');
     const iconLocation = `https://openweathermap.org/img/wn/${weather.current.weather[0].icon.value}@2x.png`;
-
+    
     const mainCity = document.querySelector('#main-city');
     mainCity.textContent = `${name}, ${country}`;
 
-
-    const icon = document.querySelector('#main-icon');
-    const mainIcon = document.createElement('img');
-    Image.src = iconLocation;
-    icon.appendChild(mainIcon);
+    // const icon = document.querySelector('#main-icon');
+    // const mainIcon = document.createElement('img');
+    // image.src = iconLocation;
+    // icon.appendChild(mainIcon);
     // mainIcon.innerHtml = `${weather.current.weather[0].icon}`;
 
-    const currentDate = document.querySelector('#current-date');
-    currentDate.textContent = unixDate;
+    const currentDay = document.querySelector('#current-day');
+    // currentDay.textContent = now.format('dddd');
 
+    const currentDate = document.querySelector('#current-date');
+    // currentDate.textContent = now.format('MMMM Do YYYY');
 
     const weatherConditions = document.querySelector('#weather-cond');
     weatherConditions.textContent = `${weather.current.weather[0].description}`;
@@ -102,8 +113,6 @@ function domBuilder (weather, name, country) {
 
     
     const sunrise = document.querySelector('#sunrise');
-    // Date.now(`${weather.current.sunrise}`)
-    // const sunriseTime = Date();
     let sunriseTime = new Date(weather.current.sunrise*1000).toLocaleTimeString('en-AU');
     sunrise.textContent = sunriseTime;
     
@@ -186,6 +195,8 @@ function domBuilder (weather, name, country) {
     const forecastFiveHumid = document.querySelector('#humid-5');
     forecastFiveHumid.textContent = `Humidity: ${weather.daily[6].humidity}%`;
 
+
+
     uvColorCode(weather);
 } 
 
@@ -218,28 +229,3 @@ function uvColorCode(weather){
         mainUV.addClass('uvExtreme');
     }
 }
-
-// += shorthand to add text instead of override text
-
-// response gets the response from the api and runs that as the parameter of the function
-
-// fetch is a promise, waiting for an event (the http address) to use the infromation within 
-// once the promise has received the info then you need to tell it what to do with that info
-
-// two variables for lattitude and longditute (learning.coord.lat) etc
-// learning = data (insert Yuri laughing)
-
-// location variable 
-// q = city name
-// OR
-//  = lat/long
-// depending on function value of q is redefined
-
-
-// hit first api (openweather) weather?
-// input = city name
-// output = lat/long
-
-// second api (onecall)
-// input = lat/long
-// output = current weather & forecast
