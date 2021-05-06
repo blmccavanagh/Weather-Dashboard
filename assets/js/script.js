@@ -9,27 +9,32 @@ let ul = document.querySelector('#search-history')
 
 $(document).ready(function(){
     searchLocation(defaultLocation);
+    getSearchHistory();
     // setInterval(updateTimeSensitiveFunctions, 1000);
 });
 
-for (i = 0; i < searchHistory.length; i++) {
-    let li = document.createElement('li');
-    let button = document.createElement('button');
-    button.setAttribute('class', 'prevSearchButton uppercase bg-blue-100 border-2 border-blue-800 m-2 p-2 rounded-lg w-4/5 hover:bg-blue-300');
-    button.textContent = searchHistory[i];
-    button.value = searchHistory[i];
-    li.append(button);
-    ul.append(li);
+function getSearchHistory () {
+    for (i = 0; i < searchHistory.length; i++) {
+        let li = document.createElement('li');
+        let button = document.createElement('button');
+        button.setAttribute('class', 'prevSearchButton uppercase bg-blue-100 border-2 border-blue-800 m-2 p-2 rounded-lg w-4/5 hover:bg-blue-300');
+        button.textContent = searchHistory[i];
+        button.value = searchHistory[i];
+        li.append(button);
+       ul.append(li);
+    }
 } 
 
 cityInput.addEventListener('keypress', function (e) {
     if (e.key === 'Enter') {
+        getSearchHistory();
         userSearch();
         cityInput.value = "";
     }
 });
 
 searchButton.addEventListener('click', function () {
+    getSearchHistory();
     userSearch();
     cityInput.value = "";
 });
