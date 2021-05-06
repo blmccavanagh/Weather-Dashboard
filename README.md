@@ -76,7 +76,7 @@ I aim to continue to develop this website to include:
 
 </div>
 
-![Weather Dashboard Desktop Screen Capture](assets/images/README/weather-dashboard-desktop-screen-capture.jpg)
+![Weather Dashboard Desktop Screen Capture](./assets/images/README/weather-dashboard-desktop-screen-capture.jpg)
 
 ---
 
@@ -86,7 +86,7 @@ I aim to continue to develop this website to include:
 
 </div>
 
-![Weather Dashboard Mobile Screen Capture](assets/images/README/weather-dashboard-mobile-screen-capture.png)
+![Weather Dashboard Mobile Screen Capture](./assets/images/README/weather-dashboard-mobile-screen-capture.png)
 
 ---
 
@@ -96,6 +96,6 @@ I aim to continue to develop this website to include:
 
 </div>
 
-![Weather Dashboard Demo](assets/images/README/weather-dashboard-demo.gif)
+![Weather Dashboard Demo](./assets/images/README/weather-dashboard-demo.gif)
 
 ---
