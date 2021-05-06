@@ -1,12 +1,12 @@
 let now = moment();
 const myApiKey = "ae822aef9413bb77b74f555fff250166";
 const defaultLocation = "Perth, AU";
-let searchHistory = JSON.parse(localStorage.getItem('prevSearch'))||[];
 const cityInput = document.querySelector('#location-search');
+let searchHistory = JSON.parse(localStorage.getItem('prevSearch'))||[];
 const searchButton = document.querySelector('#search-button');
 let ul = document.querySelector('#search-history')
-let li = document.createElement('li');
-let button = document.createElement('button');
+// let li = document.createElement('li');
+// let button = document.createElement('button');
 
 
 $(document).ready(function(){
@@ -19,32 +19,38 @@ cityInput.addEventListener('keypress', function (e) {
     if (e.key === 'Enter') {
         userSearch();
         cityInput.value = "";
-        // getSearchHistory();
+        getSearchHistory();
     }
 });
 
 searchButton.addEventListener('click', function () {
     userSearch();
     cityInput.value = "";
-    // getSearchHistory();
+    getSearchHistory();
 });
 
 function getSearchHistory () {
+    ul.innerHTML = "";
     for (i = 0; i < searchHistory.length; i++) {
+        let li = document.createElement('li');
+        let button = document.createElement('button');
+        console.log(searchHistory[i]);
         button.setAttribute('class', 'prevSearchButton uppercase bg-blue-100 border-2 border-blue-800 m-2 p-2 rounded-lg w-4/5 hover:bg-blue-300');
         button.textContent = searchHistory[i];
         button.value = searchHistory[i];
         li.append(button);
         ul.append(li);
     }
+    $('.prevSearchButton').on('click', function () {
+        searchLocation(this.value);
+    });
 } 
 
-$('.prevSearchButton').on('click', function () {
-    searchLocation(this.value);
-});
 
 $('#clear-button').on('click', function () {
-    document.localStorage.clear();
+    window.localStorage.clear();
+    ul.innerHTML = "";
+    searchHistory = [];
 });
 
 
@@ -57,9 +63,6 @@ function userSearch () {
     }
     searchHistory.unshift(inputValue);
     localStorage.setItem('prevSearch', JSON.stringify(searchHistory));
-    button.value = searchHistory[i];
-    li.append(button);
-    ul.append(li);
 }
 
 function searchLocation (city) {
@@ -97,20 +100,13 @@ function getWeather (lat, lon, name, country) {
 function domBuilder (weather, name, country) {
     
     let unixDate = new Date(weather.current.dt*1000).toLocaleDateString('en-GB');
-    const iconLocation = `https://openweathermap.org/img/wn/${weather.current.weather[0].icon}@2x.png`;
     
     const mainCity = document.querySelector('#main-city');
     mainCity.textContent = `${name}, ${country}`;
-
-    // const icon = document.querySelector('#main-icon');
-    // const mainIcon = document.createElement('img');
-    // mainIcon.setAttribute('src', iconLocation);
-    // icon.appendChild(mainIcon);
-
+    
     const mainIcon = document.querySelector('#main-icon');
-    // const mainIcon = document.createElement('img');
-    mainIcon.setAttribute('src', iconLocation);
-    // icon.appendChild(mainIcon);
+    const mainIconLocation = `https://openweathermap.org/img/wn/${weather.current.weather[0].icon}@2x.png`;
+    mainIcon.setAttribute('src', mainIconLocation);
 
     const currentDay = document.querySelector('#current-day');
     currentDay.textContent = now.format('dddd');
@@ -156,11 +152,13 @@ function domBuilder (weather, name, country) {
     const forecastOneDate = document.querySelector('#date-1');
     let unixDateF1 = new Date(weather.daily[1].dt*1000).toLocaleDateString('en-AU');
     forecastOneDate.textContent = unixDateF1;
-
-    // const forecastOneIcon = document.querySelector('#icon-1');
-    // forecastOneIcon.setAttribute('src', iconLocation);
-    // const icon1 = document.createElement('img');
-    // forecastOneIcon.appendChild(icon1);
+    
+    // console.log(weather.daily[1].weather[0].icon)
+    // let iconLocation1 = `https://openweathermap.org/img/wn/${weather.daily[1].weather[0].icon}@2x.png`;
+    // console.log(iconLocation1)
+    // const forecastOneIcon = document.querySelector('#icon1');
+    // console.log(forecastOneIcon)
+    // forecastOneIcon.setAttribute('src', iconLocation1);
 
     const forecastOneTemp = document.querySelector('#temp-1');
     forecastOneTemp.textContent = `Temp: ${weather.daily[1].temp.day}°C`;
@@ -174,6 +172,11 @@ function domBuilder (weather, name, country) {
     
     const forecastTwoDay = document.querySelector('#day-2');
     forecastTwoDay.textContent = moment().add(2, 'days').format("dddd");
+
+    // const iconLocation2 = `https://openweathermap.org/img/wn/${weather.daily[2].weather[0].icon}@2x.png`;
+    // const forecastTwoIcon = document.querySelector('#icon-2');
+    // console.log(forecastOneIcon)
+    // forecastTwoIcon.setAttribute('src', iconLocation2);
 
     const forecastTwoDate = document.querySelector('#date-2');
     let unixDateF2 = new Date(weather.daily[2].dt*1000).toLocaleDateString('en-AU');
