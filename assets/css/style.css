@@ -203,4 +203,8 @@ footer img:hover {
     .sun {
         max-width: 50px
     }
+
+    footer {
+        width: 80%;
+    }
 }
