@@ -5,6 +5,8 @@ let searchHistory = JSON.parse(localStorage.getItem('prevSearch'))||[];
 const cityInput = document.querySelector('#location-search');
 const searchButton = document.querySelector('#search-button');
 let ul = document.querySelector('#search-history')
+let li = document.createElement('li');
+let button = document.createElement('button');
 
 
 $(document).ready(function(){
@@ -17,30 +19,32 @@ cityInput.addEventListener('keypress', function (e) {
     if (e.key === 'Enter') {
         userSearch();
         cityInput.value = "";
-        getSearchHistory();
+        // getSearchHistory();
     }
 });
 
 searchButton.addEventListener('click', function () {
     userSearch();
     cityInput.value = "";
-    getSearchHistory();
+    // getSearchHistory();
 });
 
 function getSearchHistory () {
     for (i = 0; i < searchHistory.length; i++) {
-        let li = document.createElement('li');
-        let button = document.createElement('button');
         button.setAttribute('class', 'prevSearchButton uppercase bg-blue-100 border-2 border-blue-800 m-2 p-2 rounded-lg w-4/5 hover:bg-blue-300');
         button.textContent = searchHistory[i];
         button.value = searchHistory[i];
         li.append(button);
-       ul.append(li);
+        ul.append(li);
     }
 } 
 
 $('.prevSearchButton').on('click', function () {
     searchLocation(this.value);
+});
+
+$('#clear-button').on('click', function () {
+    document.localStorage.clear();
 });
 
 
@@ -53,6 +57,9 @@ function userSearch () {
     }
     searchHistory.unshift(inputValue);
     localStorage.setItem('prevSearch', JSON.stringify(searchHistory));
+    button.value = searchHistory[i];
+    li.append(button);
+    ul.append(li);
 }
 
 function searchLocation (city) {
@@ -150,8 +157,8 @@ function domBuilder (weather, name, country) {
     let unixDateF1 = new Date(weather.daily[1].dt*1000).toLocaleDateString('en-AU');
     forecastOneDate.textContent = unixDateF1;
 
-    const forecastOneIcon = document.querySelector('#icon-1');
-    forecastOneIcon.setAttribute('src', iconLocation);
+    // const forecastOneIcon = document.querySelector('#icon-1');
+    // forecastOneIcon.setAttribute('src', iconLocation);
     // const icon1 = document.createElement('img');
     // forecastOneIcon.appendChild(icon1);
 
@@ -247,16 +254,16 @@ function uvColorCode(weather){
         mainUV.classList.add('bg-green-400');
         uviRating = '[Low]';
     } else if (uvi > 2 && uvi <= 5) {
-        mainUV.addClass('bg-yellow-400');
+        mainUV.classList.add('bg-yellow-400');
         uviRating = '[Moderate]';
     } else if (uvi > 5 && uvi <= 7) {
-        mainUV.addClass('bg-orange-400');
+        mainUV.classList.add('bg-orange-400');
         uviRating = '[High]';
     } else if (uvi > 7 && uvi <= 10) {
-        mainUV.addClass('bg-red-400');
+        mainUV.classList.add('bg-red-400');
         uviRating = '[Very High]';
     } else if (uvi > 5 && uvi <= 7) {
-        mainUV.addClass('bg-violet-400');
+        mainUV.classList.add('bg-violet-400');
         uviRating = '[Extreme]';
     }
     

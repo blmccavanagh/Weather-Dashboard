@@ -61,6 +61,10 @@ main h3 {
     font-size: 1rem;
 }
 
+main h4 {
+    font-size: 0.8rem;
+}
+
 .sun {
     max-width: 100px
 }
@@ -161,5 +165,42 @@ footer img:hover {
     24%,
     55% {
         text-shadow: none;
+    }
+}
+
+@media only screen and (max-width: 640px) {
+
+    html {
+        margin: 15px;
+    }
+
+    header {
+        padding: 1rem;
+        margin-bottom: 2rem;
+    }
+
+    header h1 {
+        font-size: 2rem;
+    }
+
+    main h1 {
+        font-size: 30px;
+        font-weight: bolder;
+    }
+    
+    main h2 {
+        font-size: 25px;
+    }
+    
+    main h3 {
+        font-size: 20px;
+    }
+
+    main h4 {
+        font-size: 15px;
+    }
+
+    .sun {
+        max-width: 50px
     }
 }

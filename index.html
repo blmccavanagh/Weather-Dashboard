@@ -31,9 +31,9 @@
         <button class="bg-purple-600 hover:bg-purple-700 focus:outline-none focus:ring-2 focus:ring-purple-600 focus:ring-opacity-50 ..."> -->
 
         <!-- grid section -->
-        <main class="flex space-x-2">
+        <main class="grid grid-cols-1 lg:flex space-x-2">
 
-            <aside class="w-1/4 m-4 shadow-inner mx-auto bg-blue-200">
+            <aside class="lg:w-1/4 m-4 shadow-inner mx-auto bg-blue-200">
                 <!-- search bar -->
                 <h2>Enter City:</h2>
                 <section>
@@ -51,11 +51,11 @@
             </aside>
 
             <!-- div container for weather results -->
-            <section class="w-3/4">
+            <section class="lg:w-3/4">
 
-                <div class="flex">
+                <div class="grid grid-cols-1 lg:flex">
                     <!-- border-solid border-4 border-black  -->
-                    <div class="flex-grow bg-white shadow-2xl rounded-lg m-2">
+                    <div class="lg:flex-grow bg-white shadow-2xl rounded-lg m-2">
                         <!-- main weather results -->
                         <h1 id="main-city"></h1>
                         <div class="flex">
@@ -65,20 +65,20 @@
                             </div>
                             <div>
                                 <h2 id="current-day"></h2>
-                                <h3 id="current-date"></h3>
-                                <h2 id="weather-cond"></h2>
+                                <h4 id="current-date"></h3>
+                                <h3 id="weather-cond"></h2>
                             </div>
                         </div>
-                        <div class="inline-flex self-center justify-content-center text-center">
+                        <div class="lg:inline-flex self-center justify-content-center text-center">
                         <h2 id="main-temp" class="m-1 p-1 shadow-inner border-transparent rounded-lg"></h2>
-                        <h3 id="feels-like" class="m-1 p-1 shadow-inner border-transparent rounded-lg"></h3>
+                        <h4 id="feels-like" class="m-1 p-1 shadow-inner border-transparent rounded-lg"></h3>
                         <p id="main-min" class="m-1 p-1 shadow-inner border-transparent rounded-lg"></p>
                         <p id="main-max" class="m-1 p-1 shadow-inner border-transparent rounded-lg"></p>
                         </div>
-                        <div class="inline-flex self-center justify-content-center text-center mt-1 w-auto">
-                        <p id="main-wind" class="shadow-inner w-1/3 m-1 p-1 border-transparent rounded-lg"></p>
-                        <p id="main-humid" class="shadow-inner w-1/3 m-1 p-1 border-transparent rounded-lg"></p>
-                        <p class="shadow-inner w-1/3 m-1 p-1 border-transparent rounded-lg"><span id="main-uv"></span></p>
+                        <div class="lg:inline-flex self-center justify-content-center text-center mt-1 w-auto">
+                        <p id="main-wind" class="shadow-inner lg:w-1/3 m-1 p-1 border-transparent rounded-lg"></p>
+                        <p id="main-humid" class="shadow-inner lg:w-1/3 m-1 p-1 border-transparent rounded-lg"></p>
+                        <p class="shadow-inner lg:w-1/3 m-1 p-1 border-transparent rounded-lg"><span id="main-uv"></span></p>
                         </div>
 
                 </div>
