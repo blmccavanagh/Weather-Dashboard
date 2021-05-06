@@ -13,6 +13,20 @@ $(document).ready(function(){
     // setInterval(updateTimeSensitiveFunctions, 1000);
 });
 
+cityInput.addEventListener('keypress', function (e) {
+    if (e.key === 'Enter') {
+        userSearch();
+        cityInput.value = "";
+        getSearchHistory();
+    }
+});
+
+searchButton.addEventListener('click', function () {
+    userSearch();
+    cityInput.value = "";
+    getSearchHistory();
+});
+
 function getSearchHistory () {
     for (i = 0; i < searchHistory.length; i++) {
         let li = document.createElement('li');
@@ -24,20 +38,6 @@ function getSearchHistory () {
        ul.append(li);
     }
 } 
-
-cityInput.addEventListener('keypress', function (e) {
-    if (e.key === 'Enter') {
-        getSearchHistory();
-        userSearch();
-        cityInput.value = "";
-    }
-});
-
-searchButton.addEventListener('click', function () {
-    getSearchHistory();
-    userSearch();
-    cityInput.value = "";
-});
 
 $('.prevSearchButton').on('click', function () {
     searchLocation(this.value);
@@ -150,9 +150,9 @@ function domBuilder (weather, name, country) {
     let unixDateF1 = new Date(weather.daily[1].dt*1000).toLocaleDateString('en-AU');
     forecastOneDate.textContent = unixDateF1;
 
-    // const forecastOneIcon = document.querySelector('#icon-1');
+    const forecastOneIcon = document.querySelector('#icon-1');
+    forecastOneIcon.setAttribute('src', iconLocation);
     // const icon1 = document.createElement('img');
-    // icon1.setAttribute('src', iconLocation);
     // forecastOneIcon.appendChild(icon1);
 
     const forecastOneTemp = document.querySelector('#temp-1');
