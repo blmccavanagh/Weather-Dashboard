@@ -25,10 +25,14 @@ for (i = 0; i < searchHistory.length; i++) {
 cityInput.addEventListener('keypress', function (e) {
     if (e.key === 'Enter') {
         userSearch();
+        cityInput.value = "";
     }
 });
 
-searchButton.addEventListener('click', userSearch);
+searchButton.addEventListener('click', function () {
+    userSearch();
+    cityInput.value = "";
+});
 
 $('.prevSearchButton').on('click', function () {
     searchLocation(this.value);
@@ -86,10 +90,15 @@ function domBuilder (weather, name, country) {
     const mainCity = document.querySelector('#main-city');
     mainCity.textContent = `${name}, ${country}`;
 
-    const icon = document.querySelector('#main-icon');
-    const mainIcon = document.createElement('img');
+    // const icon = document.querySelector('#main-icon');
+    // const mainIcon = document.createElement('img');
+    // mainIcon.setAttribute('src', iconLocation);
+    // icon.appendChild(mainIcon);
+
+    const mainIcon = document.querySelector('#main-icon');
+    // const mainIcon = document.createElement('img');
     mainIcon.setAttribute('src', iconLocation);
-    icon.appendChild(mainIcon);
+    // icon.appendChild(mainIcon);
 
     const currentDay = document.querySelector('#current-day');
     currentDay.textContent = now.format('dddd');
