@@ -153,12 +153,9 @@ function domBuilder (weather, name, country) {
     let unixDateF1 = new Date(weather.daily[1].dt*1000).toLocaleDateString('en-AU');
     forecastOneDate.textContent = unixDateF1;
     
-    // console.log(weather.daily[1].weather[0].icon)
-    // let iconLocation1 = `https://openweathermap.org/img/wn/${weather.daily[1].weather[0].icon}@2x.png`;
-    // console.log(iconLocation1)
-    // const forecastOneIcon = document.querySelector('#icon1');
-    // console.log(forecastOneIcon)
-    // forecastOneIcon.setAttribute('src', iconLocation1);
+    let iconLocation1 = `https://openweathermap.org/img/wn/${weather.daily[1].weather[0].icon}@2x.png`;
+    const forecastOneIcon = document.querySelector('#icon-1');
+    forecastOneIcon.setAttribute('src', iconLocation1);
 
     const forecastOneTemp = document.querySelector('#temp-1');
     forecastOneTemp.textContent = `Temp: ${weather.daily[1].temp.day}°C`;
@@ -173,10 +170,9 @@ function domBuilder (weather, name, country) {
     const forecastTwoDay = document.querySelector('#day-2');
     forecastTwoDay.textContent = moment().add(2, 'days').format("dddd");
 
-    // const iconLocation2 = `https://openweathermap.org/img/wn/${weather.daily[2].weather[0].icon}@2x.png`;
-    // const forecastTwoIcon = document.querySelector('#icon-2');
-    // console.log(forecastOneIcon)
-    // forecastTwoIcon.setAttribute('src', iconLocation2);
+    const iconLocation2 = `https://openweathermap.org/img/wn/${weather.daily[2].weather[0].icon}@2x.png`;
+    const forecastTwoIcon = document.querySelector('#icon-2');
+    forecastTwoIcon.setAttribute('src', iconLocation2);
 
     const forecastTwoDate = document.querySelector('#date-2');
     let unixDateF2 = new Date(weather.daily[2].dt*1000).toLocaleDateString('en-AU');
@@ -191,6 +187,10 @@ function domBuilder (weather, name, country) {
     const forecastTwoHumid = document.querySelector('#humid-2');
     forecastTwoHumid.textContent = `Humidity: ${weather.daily[2].humidity}%`;
     
+
+    const iconLocation3 = `https://openweathermap.org/img/wn/${weather.daily[3].weather[0].icon}@2x.png`;
+    const forecastThreeIcon = document.querySelector('#icon-3');
+    forecastThreeIcon.setAttribute('src', iconLocation3);
 
     const forecastThreeDay = document.querySelector('#day-3');
     forecastThreeDay.textContent = moment().add(3, 'days').format("dddd");
@@ -209,6 +209,10 @@ function domBuilder (weather, name, country) {
     forecastThreeHumid.textContent = `Humidity: ${weather.daily[3].humidity}%`;
     
 
+    const iconLocation4 = `https://openweathermap.org/img/wn/${weather.daily[4].weather[0].icon}@2x.png`;
+    const forecastFourIcon = document.querySelector('#icon-4');
+    forecastFourIcon.setAttribute('src', iconLocation4);
+
     const forecastFourDay = document.querySelector('#day-4');
     forecastFourDay.textContent = moment().add(4, 'days').format("dddd");
 
@@ -225,6 +229,10 @@ function domBuilder (weather, name, country) {
     const forecastFourHumid = document.querySelector('#humid-4');
     forecastFourHumid.textContent = `Humidity: ${weather.daily[4].humidity}%`;
     
+
+    const iconLocation5 = `https://openweathermap.org/img/wn/${weather.daily[5].weather[0].icon}@2x.png`;
+    const forecastFiveIcon = document.querySelector('#icon-5');
+    forecastFiveIcon.setAttribute('src', iconLocation5);
 
     const forecastFiveDay = document.querySelector('#day-5');
     forecastFiveDay.textContent = moment().add(5, 'days').format("dddd");
